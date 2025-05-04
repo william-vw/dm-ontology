@@ -1,0 +1,904 @@
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix slr: <http://www.semanticweb.org/eelha081/ontologies/2024/8/DM-SLR-Ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dct:creator a owl:ObjectProperty .
+
+dct:subject a owl:ObjectProperty .
+
+datacite:hasDescription a owl:ObjectProperty .
+
+datacite:hasIdentifier a owl:ObjectProperty .
+
+datacite:usesIdentifierScheme a owl:ObjectProperty .
+
+fabio:WorkshopPaper rdfs:subClassOf fabio:ProceedingsPaper .
+
+fabio:hasPublicationYear a owl:DatatypeProperty .
+
+frbr:embodiment a owl:ObjectProperty .
+
+frbr:realization a owl:ObjectProperty .
+
+slr:AdamBanham_data-aware-conformance_Git a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/AdamBanham/data-aware-conformance> .
+
+slr:AddNon-mutexOperator a slr:DMSolution .
+
+slr:AdvancedML a slr:DMSolution .
+
+slr:Align a slr:DMSolution .
+
+slr:Banham_et_al.2024 a fabio:ResearchPaper ;
+    frbr:realization slr:Banham_et_al.2024_Expression ;
+    slr:addressesProblem slr:MissingContextData ;
+    prov:used slr:Pmkoalas .
+
+slr:Conformance a slr:EvaluationProblem .
+
+slr:Crerie_et_al.2009 a fabio:ResearchPaper ;
+    dct:creator slr:Fernanda.Araujo.Baião,
+        slr:Flávia.Maria.Santoro,
+        slr:Raphael.Crerie ;
+    frbr:realization slr:Crerie_et_al.2009_Expression ;
+    slr:addressesProblem slr:MultipleTypesOfDecisions ;
+    prov:used slr:ProMPlugin,
+        slr:WekaLibraryIndividual .
+
+slr:DMAlgorithm rdfs:subClassOf fabio:Algorithm .
+
+slr:DMQualityMetrics a slr:DMSolution .
+
+slr:DecisionRuleHistory a slr:DMSolution .
+
+slr:Dunkl_et_al.2015 a fabio:ResearchPaper ;
+    dct:creator slr:Karl.Anton.Fröschl,
+        slr:Reinhold.Dunkl,
+        slr:Stefanie.Rinderle-Ma,
+        slr:Wilfried.Grossmann ;
+    frbr:realization slr:Dunkl_et_al.2015_Expression ;
+    slr:addressesProblem slr:MissingContextData ;
+    prov:used slr:DPATS .
+
+slr:DynamicDecisions a slr:TypesOfDecision .
+
+slr:EventAttributeClassification a slr:DMSolution .
+
+slr:FeatureEngineering a slr:InjectKnowledge .
+
+slr:FixDMModel a slr:DMSolution .
+
+slr:IdentifyInstance-spanningDependencies a slr:DMSolution .
+
+slr:IdentifyVariable-activityDependencies a slr:DMSolution .
+
+slr:InjectData a slr:DMSolution .
+
+slr:Instance-spanningDecisions a slr:TypesOfDecision .
+
+slr:Jareevongpiboon_et_al.2011 a fabio:ResearchPaper ;
+    dct:creator slr:P.Janecek,
+        slr:W.Jareevongpiboon ;
+    frbr:realization slr:Jareevongpiboon_et_al.2011_Expression ;
+    slr:addressesProblem slr:MissingContextData ;
+    prov:used slr:DecisionMinerPlugin .
+
+slr:Jouck_et_al.2019 a fabio:ResearchPaper ;
+    dct:creator slr:Benoît.Depaire,
+        slr:Massimiliano.de.Leoni,
+        slr:Toon.Jouck ;
+    frbr:realization slr:Jouck_et_al.2019_Expression ;
+    slr:addressesProblem slr:CompareDMApproaches ;
+    prov:used slr:PTandLogGeneratorPackage .
+
+slr:Khemiri_et_al.2018 a fabio:ResearchPaper ;
+    dct:creator slr:Abdelhak.Khemiri,
+        slr:Claudia.Frydman,
+        slr:Jacques.Pinaton,
+        slr:Maamar.El.Amine.Hamri ;
+    frbr:realization slr:Khemiri_et_al.2018_Expression ;
+    prov:used slr:KNIME .
+
+slr:LowDMRecall slr:hasPossibleCause slr:DeviatingLogs,
+        slr:DynamicDecisionRules,
+        slr:Instance-spanningConstraint,
+        slr:MissingContextData,
+        slr:MissingDecisions,
+        slr:ModelConstructs,
+        slr:ModelSuitability,
+        slr:MultipleTypesOfDecisions,
+        slr:OverlappingDecisionRules,
+        slr:TemporalDecisions .
+
+slr:Lukassen_et_al.2023 a fabio:ResearchPaper ;
+    dct:creator slr:Britt.Lukassen,
+        slr:Laura.Genga,
+        slr:Yingqian.Zhang ;
+    frbr:realization slr:Lukassen_et_al.2023_Expression ;
+    slr:addressesProblem slr:MissingContextData .
+
+slr:Mertens_et_al.2018 a fabio:ResearchPaper ;
+    frbr:realization slr:Mertens_et_al.2018_Expression ;
+    slr:addressesProblem slr:ModelSuitability ;
+    prov:used slr:DeciClareMiner .
+
+slr:MultiPerspectiveExplorerPackage a slr:ProMFramework,
+        slr:WekaLibrary .
+
+slr:MultiProcessDecisions a slr:TypesOfDecision .
+
+slr:OnlineDM a slr:DMSolution .
+
+slr:P-MinDPackage_Link a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://svn.win.tue.nl/repos/prom/Packages/PMinD/> .
+
+slr:PredictiveAbility a slr:DMProblem .
+
+slr:Processmining.org a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://www.processmining.org/> .
+
+slr:Promtools.org a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://promtools.org/> .
+
+slr:Re-useRules a slr:DMSolution .
+
+slr:Rozinat_et_al_BPM.2006 a fabio:ResearchPaper ;
+    dct:creator slr:A.Rozinat,
+        slr:Wil.M.P.van.der.Aalst ;
+    frbr:realization slr:Rozinat_et_al_BPM.2006_Expression ;
+    slr:addressesProblem slr:ModelConstructs ;
+    prov:used slr:DecisionMinerPlugin .
+
+slr:Rozinat_et_al_TUe.2006 a fabio:TechnicalReport ;
+    dct:creator slr:A.Rozinat,
+        slr:Wil.M.P.van.der.Aalst ;
+    frbr:realization slr:Rozinat_et_al_TUe.2006_Expression ;
+    slr:addressesProblem slr:ModelConstructs ;
+    prov:used slr:DecisionMinerPlugin .
+
+slr:Sarno_et_al.2013 a fabio:ResearchPaper ;
+    dct:creator slr:Dwi.Sunaryono,
+        slr:Hari.Ginardi,
+        slr:Imam.Mukhlash,
+        slr:Putu.Linda.Indita.Sari,
+        slr:Riyanarto.Sarno ;
+    frbr:realization slr:Sarno_et_al.2013_Expression ;
+    slr:addressesProblem slr:ModelConstructs ;
+    prov:used slr:ProMPlugin .
+
+slr:Sarno_et_al.2014 a fabio:ResearchPaper ;
+    dct:creator slr:Bilqis.Amaliah,
+        slr:Dwi.Sunaryono,
+        slr:Imam.Mukhlash,
+        slr:Putu.Linda.Indita.Sari,
+        slr:Riyanarto.Sarno ;
+    frbr:realization slr:Sarno_et_al.2014_Expression ;
+    slr:addressesProblem slr:ModelConstructs ;
+    prov:used slr:DecisionPointAnalysisPlugin .
+
+slr:Simulation a slr:DMSolution .
+
+slr:StaticDecision a slr:TypesOfDecision .
+
+slr:TemporalDataTimeSeries a slr:DMSolution .
+
+slr:UseDeclarativeModels a slr:DMSolution .
+
+slr:Winter_et_al.2020 a fabio:ResearchPaper ;
+    frbr:realization slr:Winter_et_al.2020_Expression .
+
+slr:aarkue_eXdpn_Git a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/aarkue/eXdpn> .
+
+slr:addressesProblem a owl:ObjectProperty .
+
+slr:bscheibel_dmma_Git a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/bscheibel/dmma> .
+
+slr:bscheibel_edt-ts_Git a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/bscheibel/edt-ts/tree/main/data> .
+
+slr:cnam0203_CJX_Git a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/cnam0203/CJX> .
+
+slr:hasPossibleCause a owl:ObjectProperty .
+
+slr:hasProsAndCons a owl:ObjectProperty .
+
+slr:implements a owl:ObjectProperty .
+
+slr:producesModel a owl:ObjectProperty .
+
+slr:proposesSolution a owl:ObjectProperty .
+
+slr:relatesToDecisionType a owl:ObjectProperty .
+
+slr:solves a owl:ObjectProperty .
+
+slr:stevmert_DeciClareMinerV11_Git a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/stevmert/DeciClareMinerV11/> .
+
+slr:stevmert_discoveryMethod_Git a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/stevmert/discoveryMethod> .
+
+slr:usesAlgorithm a owl:ObjectProperty .
+
+slr:usesModel a owl:ObjectProperty .
+
+rdf:value a owl:DatatypeProperty .
+
+prov:used a owl:ObjectProperty .
+
+datacite:ResourceIdentifier rdfs:subClassOf datacite:Identifier .
+
+fabio:Algorithm rdfs:subClassOf fabio:Specification .
+
+fabio:ComputerProgram rdfs:subClassOf fabio:Expression .
+
+fabio:Report rdfs:subClassOf fabio:Work .
+
+fabio:ReportDocument rdfs:subClassOf fabio:Expression .
+
+fabio:ScholarlyWork rdfs:subClassOf fabio:Work .
+
+fabio:Specification rdfs:subClassOf fabio:Work .
+
+fabio:TechnicalReport rdfs:subClassOf fabio:Report .
+
+slr:4TU_ResearchDataset_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.4121/uuid:270fd440-1057-4fb9-89a9-b699b47990f5" .
+
+slr:A.Jiménez-Ramírez rdfs:seeAlso <https://scholar.google.co.uk/citations?user=qxRi-4gAAAAJ&hl=en&oi=sra> .
+
+slr:A.Martínez-Rojas rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=qhMxtwMAAAAJ> .
+
+slr:Aaron.Küsters rdfs:seeAlso <https://scholar.google.com/citations?user=2Es2xEQAAAAJ&hl=en&oi=sra> .
+
+slr:Abdelhak.Khemiri rdfs:seeAlso <https://ieeexplore.ieee.org/author/37086608211> .
+
+slr:Adam.Banham rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=IyiPbEAAAAAJ> .
+
+slr:Andrea.Ballarino rdfs:seeAlso <https://scholar.google.co.uk/citations?user=15zKPJwAAAAJ&hl=en&oi=sra> .
+
+slr:BPIC12Dataset_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f" .
+
+slr:BPIC17Dataset_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.4121/uuid:5f3067df-f10b-45da-b98b-86ae4c7a310b" .
+
+slr:BPIC19Dataset a fabio:Dataset ;
+    dct:subject slr:OrderManagement ;
+    datacite:hasDescription slr:Park_et_al.2023 ;
+    datacite:hasIdentifier slr:BPIC19Dataset_DOI .
+
+slr:BPIC19Dataset_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.4121/uuid:d06aff4b-79f0-45e6-8ec8-e19730c248f1" .
+
+slr:BPIC20Dataset a fabio:Dataset ;
+    dct:subject slr:Tourism ;
+    datacite:hasDescription slr:Scheibel_et_al.Oct_2022 ;
+    datacite:hasIdentifier slr:BPIC20Dataset_DOI .
+
+slr:BPIC20Dataset_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.4121/uuid:52fb97d4-4588-43c9-9d04-3604d4613b51" .
+
+slr:Banham_et_al.2022 a fabio:ResearchPaper ;
+    dct:creator slr:Adam.Banham,
+        slr:Moe.T.Wynn,
+        slr:Robert.Andrews,
+        slr:Sander.J.J.Leemans ;
+    frbr:realization slr:Banham_et_al.2022_Expression ;
+    slr:addressesProblem slr:MissingContextData ;
+    prov:used slr:MIMIC-IIIDataset .
+
+slr:Banham_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-030-98581-3_7" .
+
+slr:Banham_et_al.2022_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Banham_et_al.2022_DOI ;
+    fabio:hasPublicationYear "2022"^^xsd:year .
+
+slr:Banham_et_al.2024_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1109/ACCESS.2024.3391234" .
+
+slr:Banham_et_al.2024_Expression a fabio:JournalArticle ;
+    datacite:hasIdentifier slr:Banham_et_al.2024_DOI ;
+    fabio:hasPublicationYear "2024"^^xsd:year .
+
+slr:Benoît.Depaire rdfs:seeAlso <https://scholar.google.co.uk/citations?user=REbZ-KAAAAAJ&hl=en&oi=sra> .
+
+slr:Bilqis.Amaliah rdfs:seeAlso <https://scholar.google.com/citations?hl=en&user=9vF7m6gAAAAJ> .
+
+slr:Britt.Lukassen rdfs:comment "Eindhoven University of Technology, Eindhoven, The Netherlands" .
+
+slr:CRISPDataset a fabio:Dataset ;
+    dct:subject slr:Education ;
+    datacite:hasDescription slr:Winter_et_al.2017 ;
+    frbr:embodiment slr:CRISPDataset_Link_Embodiment .
+
+slr:CRISPDataset_Link_Embodiment a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://gruppe.wst.univie.ac.at/projects/crisp/index.php?m=D&t=discovery&c=show&CEWebS_what=Main> .
+
+slr:Cameron.Pitsch rdfs:seeAlso <https://scholar.google.com/citations?user=j-IE6ukAAAAJ&hl=en&oi=sra> .
+
+slr:Claudia.Frydman rdfs:seeAlso <https://ieeexplore.ieee.org/author/37354615300> .
+
+slr:CompareDMApproaches a slr:EvaluationProblem .
+
+slr:Crerie_et_al.2009_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-642-01862-6_12" .
+
+slr:Crerie_et_al.2009_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Crerie_et_al.2009_DOI ;
+    fabio:hasPublicationYear "2009"^^xsd:year .
+
+slr:Cuong.Pham-Nguyen rdfs:seeAlso <https://scholar.google.com/citations?user=SyTf3AQAAAAJ&hl=en&oi=sra> .
+
+slr:DPATS a slr:DMTool .
+
+slr:De_Smedt_et_al.2019 a fabio:ResearchPaper ;
+    frbr:realization slr:De_Smedt_et_al.2019_Expression ;
+    slr:addressesProblem slr:MissingDecisions ;
+    prov:used slr:BPIC17Dataset,
+        slr:P-MInDPlugin .
+
+slr:De_Smedt_et_al.2019_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1016/j.knosys.2019.104866" .
+
+slr:De_Smedt_et_al.2019_Expression a fabio:JournalArticle ;
+    datacite:hasIdentifier slr:De_Smedt_et_al.2019_DOI ;
+    fabio:hasPublicationYear "2019"^^xsd:year .
+
+slr:DecisionPointAnalysisPlugin a slr:ProMFramework .
+
+slr:Diego.Savoia rdfs:comment "Politecnico di Milano - DEIB, Milan, Italy" .
+
+slr:Duc.Loc.Nguyen.Vo rdfs:seeAlso <https://dl.acm.org/profile/99660119534> .
+
+slr:Dunkl_et_al.2015_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-319-19270-3_5" .
+
+slr:Dunkl_et_al.2015_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Dunkl_et_al.2015_DOI ;
+    fabio:hasPublicationYear "2015"^^xsd:year .
+
+slr:Felix.Mannhardt rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=s1HfgbcAAAAJ> .
+
+slr:Fernanda.Araujo.Baião rdfs:seeAlso <https://scholar.google.co.uk/citations?user=BU2qW_gAAAAJ&hl=en&oi=sra> .
+
+slr:Flávia.Maria.Santoro rdfs:seeAlso <https://scholar.google.co.uk/citations?user=HhVcLMUAAAAJ&hl=en&oi=sra> .
+
+slr:GoogleMerchandiseStoredataset a fabio:Dataset ;
+    dct:subject slr:Retail ;
+    datacite:hasDescription slr:Nguyen_Chan_et_al.2022 ;
+    frbr:embodiment slr:GoogleMerchandiseStoredataset_Link_Embodiment .
+
+slr:GoogleMerchandiseStoredataset_Link_Embodiment a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://www.kaggle.com/datasets/bigquery/google-analytics-sample> .
+
+slr:Gyunam.Park rdfs:seeAlso <https://scholar.google.com/citations?user=pizUQ6gAAAAJ&hl=en&oi=sra> .
+
+slr:Hari.Ginardi rdfs:seeAlso <https://scholar.google.com/citations?user=pED0WkoAAAAJ&hl=en&oi=sra> .
+
+slr:Hasic_et_al.2022 a fabio:ResearchPaper ;
+    frbr:realization slr:Hasic_et_al.2022_Expression ;
+    prov:used slr:BPIC17Dataset,
+        slr:SOAP-MInD .
+
+slr:Hasic_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1109/TSC.2020.2965516" .
+
+slr:Hasic_et_al.2022_Expression a fabio:JournalArticle ;
+    datacite:hasIdentifier slr:Hasic_et_al.2022_DOI ;
+    fabio:hasPublicationYear "2022"^^xsd:year .
+
+slr:HealthRecord_EHR_SystemDataset a fabio:Dataset ;
+    dct:subject slr:Healthcare ;
+    datacite:hasDescription slr:Mertens_et_al.2022 ;
+    frbr:embodiment slr:stevmert_discoveryMethod_Git_Embodiment .
+
+slr:InjectKnowledge rdfs:subClassOf slr:DMSolution .
+
+slr:J.G.Enríquez rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=uMfdKyEAAAAJ> .
+
+slr:Jacques.Pinaton rdfs:seeAlso <https://ieeexplore.ieee.org/author/37547406500> .
+
+slr:Jareevongpiboon_et_al.2011_Embodiment0 a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://aisel.aisnet.org/iceb2011/5/> .
+
+slr:Jareevongpiboon_et_al.2011_Expression a fabio:ConferencePaper ;
+    fabio:hasPublicationYear "2011"^^xsd:year ;
+    frbr:embodiment slr:Jareevongpiboon_et_al.2011_Embodiment0 .
+
+slr:Jonathan.Schneider rdfs:comment "RWTH Aachen University, Aachen, Germany" .
+
+slr:Jouck_et_al.2019_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-030-11641-5_38" .
+
+slr:Jouck_et_al.2019_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Jouck_et_al.2019_DOI ;
+    fabio:hasPublicationYear "2019"^^xsd:year .
+
+slr:KNIME a slr:DMTool .
+
+slr:Karl.Anton.Fröschl rdfs:comment "Faculty of Computer Science, University of Vienna, Vienna, Austria" .
+
+slr:Karolin.Winter rdfs:seeAlso <https://scholar.google.com/citations?user=EWS4nf0AAAAJ&hl=en&oi=sra> .
+
+slr:Khemiri_et_al.2018_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1109/WSC.2018.8632509" .
+
+slr:Khemiri_et_al.2018_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Khemiri_et_al.2018_DOI ;
+    fabio:hasPublicationYear "2018"^^xsd:year .
+
+slr:Laura.Genga rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=bgUFsOUAAAAJ> .
+
+slr:Leoni_et_al.2013 a fabio:ResearchPaper ;
+    dct:creator slr:Massimiliano.de.Leoni,
+        slr:Wil.M.P.van.der.Aalst ;
+    frbr:realization slr:Leoni_et_al.2013_Expression ;
+    slr:addressesProblem slr:DeviatingLogs ;
+    prov:used slr:BPIC12Dataset,
+        slr:ProMPlugin .
+
+slr:Leoni_et_al.2013_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1145/2480362.2480633" .
+
+slr:Leoni_et_al.2013_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Leoni_et_al.2013_DOI ;
+    fabio:hasPublicationYear "2013"^^xsd:year .
+
+slr:LoanApplocationDataset a fabio:Dataset ;
+    dct:subject slr:Finance ;
+    datacite:hasDescription slr:Scheibel_et_al.Oct_2022 ;
+    frbr:embodiment slr:bscheibel_dmma_Git_Embodiment .
+
+slr:Lukassen_et_al.2023_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-031-44505-7_31" .
+
+slr:Lukassen_et_al.2023_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Lukassen_et_al.2023_DOI ;
+    fabio:hasPublicationYear "2023"^^xsd:year .
+
+slr:MIMIC-IIIDataset a fabio:Dataset ;
+    dct:subject slr:Healthcare ;
+    datacite:hasDescription slr:Banham_et_al.2022 ;
+    frbr:embodiment slr:adamBanham_icpm2021_Git_Embodiment .
+
+slr:Maamar.El.Amine.Hamri rdfs:seeAlso <https://scholar.google.com/citations?user=JONdrsoAAAAJ&hl=en&oi=sra> .
+
+slr:Mannhardt_et_al.2016_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-319-39696-5_23" .
+
+slr:Mannhardt_et_al.2016_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Mannhardt_et_al.2016_DOI ;
+    fabio:hasPublicationYear "2016"^^xsd:year .
+
+slr:ManufacturingDataset_dmma a fabio:Dataset ;
+    dct:subject slr:manufacturing ;
+    datacite:hasDescription slr:Scheibel_et_al.Oct_2022 ;
+    frbr:embodiment slr:bscheibel_dmma_Git_Embodiment .
+
+slr:ManufacturingDataset_edt-ts a fabio:Dataset ;
+    dct:subject slr:manufacturing ;
+    datacite:hasDescription slr:Scheibel_et_al.Jun_2022 ;
+    frbr:embodiment slr:bscheibel_edt-ts_Git_Embodiment .
+
+slr:Mara.Tews rdfs:comment "RWTH Aachen University, Aachen, Germany" .
+
+slr:Martinez-Rojas_et_al.2022 a fabio:ResearchPaper ;
+    dct:creator slr:A.Jiménez-Ramírez,
+        slr:A.Martínez-Rojas,
+        slr:Hajo.A.Reijers,
+        slr:J.G.Enríquez ;
+    frbr:realization slr:Martinez-Rojas_et_al.2022_Expression ;
+    slr:addressesProblem slr:MissingContextData ;
+    prov:used slr:UISLogDataset .
+
+slr:Martinez-Rojas_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-031-16103-2_8" .
+
+slr:Martinez-Rojas_et_al.2022_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Martinez-Rojas_et_al.2022_DOI ;
+    fabio:hasPublicationYear "2022"^^xsd:year .
+
+slr:Matteo.Matteucci rdfs:seeAlso <https://scholar.google.co.uk/citations?user=PdbEg5YAAAAJ&hl=en&oi=sra> .
+
+slr:Mertens_et_al.2018_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1080/20476965.2017.1405876" .
+
+slr:Mertens_et_al.2018_Expression a fabio:JournalArticle ;
+    datacite:hasIdentifier slr:Mertens_et_al.2018_DOI ;
+    fabio:hasPublicationYear "2018"^^xsd:year .
+
+slr:Mertens_et_al.2022 a fabio:ResearchPaper ;
+    frbr:realization slr:Mertens_et_al.2022_Expression ;
+    slr:addressesProblem slr:ModelSuitability ;
+    prov:used slr:DeciClareMiner,
+        slr:HealthRecord_EHR_SystemDataset .
+
+slr:Mertens_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/s10796-020-10078-5" .
+
+slr:Mertens_et_al.2022_Expression a fabio:JournalArticle ;
+    datacite:hasIdentifier slr:Mertens_et_al.2022_DOI ;
+    fabio:hasPublicationYear "2022"^^xsd:year .
+
+slr:Moe.T.Wynn rdfs:seeAlso <https://scholar.google.co.uk/citations?user=HV1NIvcAAAAJ&hl=en&oi=sra> .
+
+slr:My.Hang.Vu.Thi rdfs:seeAlso <https://scholar.google.com/citations?hl=en&user=g1uPhCAAAAAJ> .
+
+slr:Nam.Nguyen.Chan rdfs:seeAlso <https://scholar.google.com/citations?user=dOGx55MAAAAJ&hl=en&oi=sra> .
+
+slr:Nguyen.Anh.Khoa.Dam rdfs:seeAlso <https://dl.acm.org/profile/99660108171> .
+
+slr:Nguyen_Chan_et_al.2022 a fabio:ResearchPaper ;
+    dct:creator slr:Cuong.Pham-Nguyen,
+        slr:Duc.Loc.Nguyen.Vo,
+        slr:My.Hang.Vu.Thi,
+        slr:Nam.Nguyen.Chan,
+        slr:Nguyen.Anh.Khoa.Dam,
+        slr:Thang.Le.Dinh,
+        slr:Thanh.Thoa.Pham.Thi ;
+    frbr:realization slr:Nguyen_Chan_et_al.2022_Expression ;
+    prov:used slr:GoogleMerchandiseStoredataset,
+        slr:Scikit-learn .
+
+slr:Nguyen_Chan_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1145/3508072.3508075" .
+
+slr:Nguyen_Chan_et_al.2022_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Nguyen_Chan_et_al.2022_DOI ;
+    fabio:hasPublicationYear "2022"^^xsd:year .
+
+slr:P-MInDPlugin a slr:ProMFramework,
+        slr:WekaLibrary .
+
+slr:P.Janecek rdfs:seeAlso <https://scholar.google.com/citations?user=a-9_oekAAAAJ&hl=en&oi=sra> .
+
+slr:PTandLogGeneratorPackage a slr:ProMFramework .
+
+slr:Park_et_al.2023_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-031-26507-5_6" .
+
+slr:Park_et_al.2023_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Park_et_al.2023_DOI ;
+    fabio:hasPublicationYear "2023"^^xsd:year .
+
+slr:Pietro.Portolani rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=Yv4Ts8cAAAAJ> .
+
+slr:Pmkoalas a slr:DMTool .
+
+slr:Portolani_et_al.2023 a fabio:ResearchPaper ;
+    dct:creator slr:Andrea.Ballarino,
+        slr:Diego.Savoia,
+        slr:Matteo.Matteucci,
+        slr:Pietro.Portolani ;
+    frbr:realization slr:Portolani_et_al.2023_Expression ;
+    slr:addressesProblem slr:ModelConstructs ;
+    prov:used slr:4TU_ResearchDataset .
+
+slr:Portolani_et_al.2023_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-031-34241-7_6" .
+
+slr:Portolani_et_al.2023_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Portolani_et_al.2023_DOI ;
+    fabio:hasPublicationYear "2023"^^xsd:year .
+
+slr:Raphael.Crerie rdfs:comment "Research and Practice Group in Information Technology, Department of Applied Informatics, Federal University of the State of Rio de Janeiro (UNIRIO), Brazil" .
+
+slr:Reinhold.Dunkl rdfs:seeAlso <https://pubmed.ncbi.nlm.nih.gov/?term=Dunkl+R&cauthor_id=30544735> .
+
+slr:Robert.Andrews rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=ffknJrMAAAAJ> .
+
+slr:Rozinat_et_al_BPM.2006_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/11841760_33" .
+
+slr:Rozinat_et_al_BPM.2006_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Rozinat_et_al_BPM.2006_DOI ;
+    fabio:hasPublicationYear "2006"^^xsd:year .
+
+slr:Rozinat_et_al_TUe.2006_Embodiment0 a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://research.tue.nl/files/1750830/609514.pdf> .
+
+slr:Rozinat_et_al_TUe.2006_Expression a fabio:ReportDocument ;
+    fabio:hasPublicationYear "2006"^^xsd:year ;
+    frbr:embodiment slr:Rozinat_et_al_TUe.2006_Embodiment0 .
+
+slr:SOAP-MInD a slr:ProMFramework .
+
+slr:Sander.J.J.Leemans rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=5_gCz9oAAAAJ> .
+
+slr:Sarno_et_al.2013_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1109/IC3INA.2013.6819197" .
+
+slr:Sarno_et_al.2013_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Sarno_et_al.2013_DOI ;
+    fabio:hasPublicationYear "2013"^^xsd:year .
+
+slr:Sarno_et_al.2014_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1109/ICTS.2014.7010557" .
+
+slr:Sarno_et_al.2014_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Sarno_et_al.2014_DOI ;
+    fabio:hasPublicationYear "2014"^^xsd:year .
+
+slr:Scheibel_et_al.Jun_2022_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-031-07472-1_1" .
+
+slr:Scheibel_et_al.Jun_2022_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Scheibel_et_al.Jun_2022_DOI ;
+    fabio:hasPublicationYear "2022"^^xsd:year .
+
+slr:Scheibel_et_al.Oct_2022_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1007/978-3-031-17995-2_19" .
+
+slr:Scheibel_et_al.Oct_2022_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Scheibel_et_al.Oct_2022_DOI ;
+    fabio:hasPublicationYear "2022"^^xsd:year .
+
+slr:SepsisDataset_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460" .
+
+slr:SupplyChainDataset_edt-ts a fabio:Dataset ;
+    dct:subject slr:SupplyChain ;
+    datacite:hasDescription slr:Scheibel_et_al.Jun_2022 ;
+    frbr:embodiment slr:bscheibel_edt-ts_Git_Embodiment .
+
+slr:TemporalDecisions a slr:GlobalDecisions,
+        slr:TypesOfDecision .
+
+slr:Thang.Le.Dinh rdfs:seeAlso <https://scholar.google.com/citations?user=T34rl4UAAAAJ&hl=en&oi=sra> .
+
+slr:Thanh.Thoa.Pham.Thi rdfs:seeAlso <https://scholar.google.com/citations?user=-YIU7LoAAAAJ&hl=en&oi=sra> .
+
+slr:Toon.Jouck rdfs:comment "UHasselt - Hasselt University, Hasselt, Belgium" .
+
+slr:TourismDataset_dmma a fabio:Dataset ;
+    dct:subject slr:Tourism ;
+    datacite:hasDescription slr:Scheibel_et_al.Oct_2022 ;
+    frbr:embodiment slr:bscheibel_dmma_Git_Embodiment .
+
+slr:Tsfresh a slr:DMTool .
+
+slr:UISLogDataset a fabio:Dataset ;
+    dct:subject slr:Administrative ;
+    datacite:hasDescription slr:Martinez-Rojas_et_al.2022 ;
+    datacite:hasIdentifier slr:UISLogDataset_DOI .
+
+slr:UISLogDataset_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.5281/zenodo.5734323" .
+
+slr:W.Jareevongpiboon rdfs:seeAlso <https://scholar.google.com/citations?user=l1ZzK0MAAAAJ&hl=en&oi=sra> .
+
+slr:WebApplication a slr:DMTool .
+
+slr:WekaLibraryIndividual a slr:WekaLibrary .
+
+slr:Wilfried.Grossmann rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=opeGt1EAAAAJ> .
+
+slr:Winter_et_al.2017 a fabio:ResearchPaper ;
+    dct:creator slr:Karolin.Winter,
+        slr:Stefanie.Rinderle-Ma ;
+    frbr:realization slr:Winter_et_al.2017_Expression ;
+    slr:addressesProblem slr:Instance-spanningConstraint ;
+    prov:used slr:CRISPDataset .
+
+slr:Winter_et_al.2017_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1109/EDOC.2017.20" .
+
+slr:Winter_et_al.2017_Expression a fabio:ConferencePaper ;
+    datacite:hasIdentifier slr:Winter_et_al.2017_DOI ;
+    fabio:hasPublicationYear "2017"^^xsd:year .
+
+slr:Winter_et_al.2020_DOI a datacite:PrimaryResourceIdentifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    rdf:value "10.1016/j.is.2019.101484" .
+
+slr:Winter_et_al.2020_Expression a fabio:JournalArticle ;
+    datacite:hasIdentifier slr:Winter_et_al.2020_DOI ;
+    fabio:hasPublicationYear "2020"^^xsd:year .
+
+slr:Yingqian.Zhang rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=7sTIWeYAAAAJ> .
+
+slr:adamBanham_icpm2021_Git_Embodiment a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/adamBanham/icpm2021> .
+
+slr:stevmert_discoveryMethod_Git_Embodiment a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/stevmert/discoveryMethod> .
+
+fabio:Article rdfs:subClassOf fabio:Expression .
+
+fabio:ProceedingsPaper rdfs:subClassOf fabio:Article .
+
+slr:4TU_ResearchDataset a fabio:Dataset ;
+    dct:subject slr:RoadTrafficFineManagement ;
+    datacite:hasDescription slr:Mannhardt_et_al.2016,
+        slr:Portolani_et_al.2023 ;
+    datacite:hasIdentifier slr:4TU_ResearchDataset_DOI .
+
+slr:A.Rozinat rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=ZJ0SJusAAAAJ> .
+
+slr:BPIC17Dataset a fabio:Dataset ;
+    dct:subject slr:Finance ;
+    datacite:hasDescription slr:De_Smedt_et_al.2019,
+        slr:Hasic_et_al.2022 ;
+    datacite:hasIdentifier slr:BPIC17Dataset_DOI .
+
+slr:Beate.Scheibel rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=X-N8WScAAAAJ> .
+
+slr:DeciClareMiner a slr:DMTool .
+
+slr:DeviatingLogs a slr:EventLogsProblem .
+
+slr:Dwi.Sunaryono rdfs:seeAlso <https://scholar.google.com/citations?user=t0sbqxQAAAAJ&hl=en&oi=sra> .
+
+slr:DynamicDecisionRules a slr:DecisionsTypeProblem .
+
+slr:EvaluationProblem rdfs:subClassOf slr:DMProblem .
+
+slr:EventLogsProblem rdfs:subClassOf slr:DMProblem .
+
+slr:GlobalDecisions rdfs:subClassOf slr:DecisionsTypeProblem .
+
+slr:Hajo.A.Reijers rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=hsfC0rEAAAAJ> .
+
+slr:Imam.Mukhlash rdfs:seeAlso <https://scholar.google.com/citations?user=2MBZF7EAAAAJ&hl=en&oi=sra> .
+
+slr:IncompleteLogs rdfs:subClassOf slr:EventLogsProblem .
+
+slr:Instance-spanningConstraint a slr:GlobalDecisions .
+
+slr:Mannhardt_et_al.2016 a fabio:ResearchPaper ;
+    dct:creator slr:Felix.Mannhardt,
+        slr:Hajo.A.Reijers,
+        slr:Massimiliano.de.Leoni,
+        slr:Wil.M.P.van.der.Aalst ;
+    frbr:realization slr:Mannhardt_et_al.2016_Expression ;
+    slr:addressesProblem slr:OverlappingDecisionRules ;
+    prov:used slr:4TU_ResearchDataset,
+        slr:SepsisDataset .
+
+slr:MissingDecisions a slr:IncompleteLogs .
+
+slr:MultipleTypesOfDecisions a slr:DecisionsTypeProblem .
+
+slr:OverlappingDecisionRules a slr:DecisionsTypeProblem .
+
+slr:Park_et_al.2023 a fabio:ResearchPaper ;
+    dct:creator slr:Aaron.Küsters,
+        slr:Cameron.Pitsch,
+        slr:Gyunam.Park,
+        slr:Jonathan.Schneider,
+        slr:Mara.Tews,
+        slr:Wil.M.P.van.der.Aalst ;
+    frbr:realization slr:Park_et_al.2023_Expression ;
+    prov:used slr:BPIC12Dataset,
+        slr:BPIC19Dataset,
+        slr:WebApplication .
+
+slr:Putu.Linda.Indita.Sari rdfs:seeAlso <https://ieeexplore.ieee.org/author/37087457789> .
+
+slr:Riyanarto.Sarno rdfs:seeAlso <https://scholar.google.com/citations?user=QOMOtp0AAAAJ&hl=en&oi=sra> .
+
+slr:Scheibel_et_al.Jun_2022 a fabio:ResearchPaper ;
+    dct:creator slr:Beate.Scheibel,
+        slr:Stefanie.Rinderle-Ma ;
+    frbr:realization slr:Scheibel_et_al.Jun_2022_Expression ;
+    slr:addressesProblem slr:MissingContextData ;
+    prov:used slr:ManufacturingDataset_edt-ts,
+        slr:Scikit-learn,
+        slr:SupplyChainDataset_edt-ts,
+        slr:Tsfresh .
+
+slr:SepsisDataset a fabio:Dataset ;
+    dct:subject slr:Healthcare ;
+    datacite:hasDescription slr:Mannhardt_et_al.2016,
+        slr:Scheibel_et_al.Oct_2022 ;
+    datacite:hasIdentifier slr:SepsisDataset_DOI .
+
+slr:TypeOfModelProblem rdfs:subClassOf slr:DMProblem .
+
+slr:bscheibel_edt-ts_Git_Embodiment a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/bscheibel/edt-ts/tree/main/data> .
+
+slr:BPIC12Dataset a fabio:Dataset ;
+    dct:subject slr:Finance ;
+    datacite:hasDescription slr:Leoni_et_al.2013,
+        slr:Park_et_al.2023,
+        slr:Scheibel_et_al.Oct_2022 ;
+    datacite:hasIdentifier slr:BPIC12Dataset_DOI .
+
+slr:DecisionMinerPlugin a slr:ProMFramework,
+        slr:WekaLibrary .
+
+slr:Massimiliano.de.Leoni rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=OejM6_AAAAAJ> .
+
+slr:ModelSuitability a slr:TypeOfModelProblem .
+
+slr:ProMPlugin a slr:ProMFramework .
+
+slr:Scikit-learn a slr:DMTool .
+
+slr:bscheibel_dmma_Git_Embodiment a fabio:DigitalManifestation ;
+    rdfs:seeAlso <https://github.com/bscheibel/dmma> .
+
+slr:DecisionsTypeProblem rdfs:subClassOf slr:DMProblem .
+
+slr:Stefanie.Rinderle-Ma rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=SGgvbfMAAAAJ> .
+
+slr:WekaLibrary rdfs:subClassOf slr:DMTool .
+
+slr:Wil.M.P.van.der.Aalst rdfs:seeAlso <https://scholar.google.co.uk/citations?user=aSZYyxIAAAAJ&hl=en&oi=sra> .
+
+fabio:JournalArticle rdfs:subClassOf fabio:Article .
+
+slr:ModelConstructs a slr:TypeOfModelProblem .
+
+slr:Scheibel_et_al.Oct_2022 a fabio:ResearchPaper ;
+    dct:creator slr:Beate.Scheibel,
+        slr:Stefanie.Rinderle-Ma ;
+    frbr:realization slr:Scheibel_et_al.Oct_2022_Expression ;
+    slr:addressesProblem slr:DynamicDecisionRules ;
+    prov:used slr:BPIC12Dataset,
+        slr:BPIC20Dataset,
+        slr:LoanApplocationDataset,
+        slr:ManufacturingDataset_dmma,
+        slr:Scikit-learn,
+        slr:SepsisDataset,
+        slr:TourismDataset_dmma .
+
+slr:ProMFramework rdfs:subClassOf slr:DMTool .
+
+slr:MissingContextData a slr:IncompleteLogs .
+
+slr:DMTool rdfs:subClassOf fabio:ComputerProgram .
+
+fabio:Dataset rdfs:subClassOf fabio:Work .
+
+fabio:DigitalManifestation rdfs:subClassOf fabio:Manifestation .
+
+fabio:ConferencePaper rdfs:subClassOf fabio:ProceedingsPaper .
+
+fabio:ResearchPaper rdfs:subClassOf fabio:ScholarlyWork .
+
+datacite:PrimaryResourceIdentifier rdfs:subClassOf datacite:ResourceIdentifier .
+
