@@ -1,904 +1,1987 @@
-@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix : <https://purl.archive.org/slr/decisionmining.owl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix fabio: <http://purl.org/spar/fabio/> .
-@prefix frbr: <http://purl.org/vocab/frbr/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix slr: <http://www.semanticweb.org/eelha081/ontologies/2024/8/DM-SLR-Ontology#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@base <https://purl.archive.org/slr/decisionmining.owl> .
 
-dct:creator a owl:ObjectProperty .
+<https://purl.archive.org/slr/decisionmining.owl> rdf:type owl:Ontology ;
+                                                   rdfs:comment "An ontology for Systematic literature review on Decision Mining." .
 
-dct:subject a owl:ObjectProperty .
+#################################################################
+#    Datatypes
+#################################################################
 
-datacite:hasDescription a owl:ObjectProperty .
+###  http://www.w3.org/2001/XMLSchema#year
+xsd:year rdf:type rdfs:Datatype .
 
-datacite:hasIdentifier a owl:ObjectProperty .
 
-datacite:usesIdentifierScheme a owl:ObjectProperty .
+#################################################################
+#    Object Properties
+#################################################################
 
-fabio:WorkshopPaper rdfs:subClassOf fabio:ProceedingsPaper .
+###  http://example.org/hasCon
+<http://example.org/hasCon> rdf:type owl:ObjectProperty .
 
-fabio:hasPublicationYear a owl:DatatypeProperty .
 
-frbr:embodiment a owl:ObjectProperty .
+###  http://purl.org/dc/terms/creator
+dct:creator rdf:type owl:ObjectProperty .
 
-frbr:realization a owl:ObjectProperty .
 
-slr:AdamBanham_data-aware-conformance_Git a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/AdamBanham/data-aware-conformance> .
+###  http://purl.org/dc/terms/subject
+dct:subject rdf:type owl:ObjectProperty .
 
-slr:AddNon-mutexOperator a slr:DMSolution .
 
-slr:AdvancedML a slr:DMSolution .
+###  http://purl.org/spar/datacite/hasDescription
+datacite:hasDescription rdf:type owl:ObjectProperty .
 
-slr:Align a slr:DMSolution .
 
-slr:Banham_et_al.2024 a fabio:ResearchPaper ;
-    frbr:realization slr:Banham_et_al.2024_Expression ;
-    slr:addressesProblem slr:MissingContextData ;
-    prov:used slr:Pmkoalas .
+###  http://purl.org/spar/datacite/hasIdentifier
+datacite:hasIdentifier rdf:type owl:ObjectProperty .
 
-slr:Conformance a slr:EvaluationProblem .
 
-slr:Crerie_et_al.2009 a fabio:ResearchPaper ;
-    dct:creator slr:Fernanda.Araujo.Baião,
-        slr:Flávia.Maria.Santoro,
-        slr:Raphael.Crerie ;
-    frbr:realization slr:Crerie_et_al.2009_Expression ;
-    slr:addressesProblem slr:MultipleTypesOfDecisions ;
-    prov:used slr:ProMPlugin,
-        slr:WekaLibraryIndividual .
+###  http://purl.org/spar/datacite/usesIdentifierScheme
+datacite:usesIdentifierScheme rdf:type owl:ObjectProperty .
 
-slr:DMAlgorithm rdfs:subClassOf fabio:Algorithm .
 
-slr:DMQualityMetrics a slr:DMSolution .
+###  http://purl.org/vocab/frbr/core#embodiment
+frbr:embodiment rdf:type owl:ObjectProperty .
 
-slr:DecisionRuleHistory a slr:DMSolution .
 
-slr:Dunkl_et_al.2015 a fabio:ResearchPaper ;
-    dct:creator slr:Karl.Anton.Fröschl,
-        slr:Reinhold.Dunkl,
-        slr:Stefanie.Rinderle-Ma,
-        slr:Wilfried.Grossmann ;
-    frbr:realization slr:Dunkl_et_al.2015_Expression ;
-    slr:addressesProblem slr:MissingContextData ;
-    prov:used slr:DPATS .
+###  http://purl.org/vocab/frbr/core#realization
+frbr:realization rdf:type owl:ObjectProperty .
 
-slr:DynamicDecisions a slr:TypesOfDecision .
 
-slr:EventAttributeClassification a slr:DMSolution .
+###  http://www.w3.org/ns/prov#used
+prov:used rdf:type owl:ObjectProperty .
 
-slr:FeatureEngineering a slr:InjectKnowledge .
 
-slr:FixDMModel a slr:DMSolution .
+###  https://purl.archive.org/slr/decisionmining.owl#addressesProblem
+:addressesProblem rdf:type owl:ObjectProperty .
 
-slr:IdentifyInstance-spanningDependencies a slr:DMSolution .
 
-slr:IdentifyVariable-activityDependencies a slr:DMSolution .
+###  https://purl.archive.org/slr/decisionmining.owl#hasPossibleCause
+:hasPossibleCause rdf:type owl:ObjectProperty .
 
-slr:InjectData a slr:DMSolution .
 
-slr:Instance-spanningDecisions a slr:TypesOfDecision .
+###  https://purl.archive.org/slr/decisionmining.owl#hasPro
+:hasPro rdf:type owl:ObjectProperty .
 
-slr:Jareevongpiboon_et_al.2011 a fabio:ResearchPaper ;
-    dct:creator slr:P.Janecek,
-        slr:W.Jareevongpiboon ;
-    frbr:realization slr:Jareevongpiboon_et_al.2011_Expression ;
-    slr:addressesProblem slr:MissingContextData ;
-    prov:used slr:DecisionMinerPlugin .
 
-slr:Jouck_et_al.2019 a fabio:ResearchPaper ;
-    dct:creator slr:Benoît.Depaire,
-        slr:Massimiliano.de.Leoni,
-        slr:Toon.Jouck ;
-    frbr:realization slr:Jouck_et_al.2019_Expression ;
-    slr:addressesProblem slr:CompareDMApproaches ;
-    prov:used slr:PTandLogGeneratorPackage .
+###  https://purl.archive.org/slr/decisionmining.owl#implements
+:implements rdf:type owl:ObjectProperty .
 
-slr:Khemiri_et_al.2018 a fabio:ResearchPaper ;
-    dct:creator slr:Abdelhak.Khemiri,
-        slr:Claudia.Frydman,
-        slr:Jacques.Pinaton,
-        slr:Maamar.El.Amine.Hamri ;
-    frbr:realization slr:Khemiri_et_al.2018_Expression ;
-    prov:used slr:KNIME .
 
-slr:LowDMRecall slr:hasPossibleCause slr:DeviatingLogs,
-        slr:DynamicDecisionRules,
-        slr:Instance-spanningConstraint,
-        slr:MissingContextData,
-        slr:MissingDecisions,
-        slr:ModelConstructs,
-        slr:ModelSuitability,
-        slr:MultipleTypesOfDecisions,
-        slr:OverlappingDecisionRules,
-        slr:TemporalDecisions .
+###  https://purl.archive.org/slr/decisionmining.owl#producesModel
+:producesModel rdf:type owl:ObjectProperty .
 
-slr:Lukassen_et_al.2023 a fabio:ResearchPaper ;
-    dct:creator slr:Britt.Lukassen,
-        slr:Laura.Genga,
-        slr:Yingqian.Zhang ;
-    frbr:realization slr:Lukassen_et_al.2023_Expression ;
-    slr:addressesProblem slr:MissingContextData .
 
-slr:Mertens_et_al.2018 a fabio:ResearchPaper ;
-    frbr:realization slr:Mertens_et_al.2018_Expression ;
-    slr:addressesProblem slr:ModelSuitability ;
-    prov:used slr:DeciClareMiner .
+###  https://purl.archive.org/slr/decisionmining.owl#proposesSolution
+:proposesSolution rdf:type owl:ObjectProperty .
 
-slr:MultiPerspectiveExplorerPackage a slr:ProMFramework,
-        slr:WekaLibrary .
 
-slr:MultiProcessDecisions a slr:TypesOfDecision .
+###  https://purl.archive.org/slr/decisionmining.owl#relatesToDecisionType
+:relatesToDecisionType rdf:type owl:ObjectProperty .
 
-slr:OnlineDM a slr:DMSolution .
 
-slr:P-MinDPackage_Link a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://svn.win.tue.nl/repos/prom/Packages/PMinD/> .
+###  https://purl.archive.org/slr/decisionmining.owl#solves
+:solves rdf:type owl:ObjectProperty .
 
-slr:PredictiveAbility a slr:DMProblem .
 
-slr:Processmining.org a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://www.processmining.org/> .
+###  https://purl.archive.org/slr/decisionmining.owl#usesAlgorithm
+:usesAlgorithm rdf:type owl:ObjectProperty .
 
-slr:Promtools.org a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://promtools.org/> .
 
-slr:Re-useRules a slr:DMSolution .
+###  https://purl.archive.org/slr/decisionmining.owl#usesModel
+:usesModel rdf:type owl:ObjectProperty .
 
-slr:Rozinat_et_al_BPM.2006 a fabio:ResearchPaper ;
-    dct:creator slr:A.Rozinat,
-        slr:Wil.M.P.van.der.Aalst ;
-    frbr:realization slr:Rozinat_et_al_BPM.2006_Expression ;
-    slr:addressesProblem slr:ModelConstructs ;
-    prov:used slr:DecisionMinerPlugin .
 
-slr:Rozinat_et_al_TUe.2006 a fabio:TechnicalReport ;
-    dct:creator slr:A.Rozinat,
-        slr:Wil.M.P.van.der.Aalst ;
-    frbr:realization slr:Rozinat_et_al_TUe.2006_Expression ;
-    slr:addressesProblem slr:ModelConstructs ;
-    prov:used slr:DecisionMinerPlugin .
+###  https://purl.archive.org/slr/decisionmining.owl/presents
+<https://purl.archive.org/slr/decisionmining.owl/presents> rdf:type owl:ObjectProperty .
 
-slr:Sarno_et_al.2013 a fabio:ResearchPaper ;
-    dct:creator slr:Dwi.Sunaryono,
-        slr:Hari.Ginardi,
-        slr:Imam.Mukhlash,
-        slr:Putu.Linda.Indita.Sari,
-        slr:Riyanarto.Sarno ;
-    frbr:realization slr:Sarno_et_al.2013_Expression ;
-    slr:addressesProblem slr:ModelConstructs ;
-    prov:used slr:ProMPlugin .
 
-slr:Sarno_et_al.2014 a fabio:ResearchPaper ;
-    dct:creator slr:Bilqis.Amaliah,
-        slr:Dwi.Sunaryono,
-        slr:Imam.Mukhlash,
-        slr:Putu.Linda.Indita.Sari,
-        slr:Riyanarto.Sarno ;
-    frbr:realization slr:Sarno_et_al.2014_Expression ;
-    slr:addressesProblem slr:ModelConstructs ;
-    prov:used slr:DecisionPointAnalysisPlugin .
+#################################################################
+#    Data properties
+#################################################################
 
-slr:Simulation a slr:DMSolution .
+###  http://purl.org/spar/fabio/hasPublicationYear
+fabio:hasPublicationYear rdf:type owl:DatatypeProperty .
 
-slr:StaticDecision a slr:TypesOfDecision .
 
-slr:TemporalDataTimeSeries a slr:DMSolution .
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#value
+rdf:value rdf:type owl:DatatypeProperty .
 
-slr:UseDeclarativeModels a slr:DMSolution .
 
-slr:Winter_et_al.2020 a fabio:ResearchPaper ;
-    frbr:realization slr:Winter_et_al.2020_Expression .
+#################################################################
+#    Classes
+#################################################################
 
-slr:aarkue_eXdpn_Git a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/aarkue/eXdpn> .
+###  http://purl.org/spar/datacite/Identifier
+datacite:Identifier rdf:type owl:Class .
 
-slr:addressesProblem a owl:ObjectProperty .
 
-slr:bscheibel_dmma_Git a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/bscheibel/dmma> .
+###  http://purl.org/spar/datacite/PrimaryResourceIdentifier
+datacite:PrimaryResourceIdentifier rdf:type owl:Class ;
+                                   rdfs:subClassOf datacite:ResourceIdentifier .
 
-slr:bscheibel_edt-ts_Git a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/bscheibel/edt-ts/tree/main/data> .
 
-slr:cnam0203_CJX_Git a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/cnam0203/CJX> .
+###  http://purl.org/spar/datacite/ResourceIdentifier
+datacite:ResourceIdentifier rdf:type owl:Class ;
+                            rdfs:subClassOf datacite:Identifier .
 
-slr:hasPossibleCause a owl:ObjectProperty .
 
-slr:hasProsAndCons a owl:ObjectProperty .
+###  http://purl.org/spar/fabio/Algorithm
+fabio:Algorithm rdf:type owl:Class ;
+                rdfs:subClassOf fabio:Specification .
 
-slr:implements a owl:ObjectProperty .
 
-slr:producesModel a owl:ObjectProperty .
+###  http://purl.org/spar/fabio/Article
+fabio:Article rdf:type owl:Class ;
+              rdfs:subClassOf fabio:Expression .
 
-slr:proposesSolution a owl:ObjectProperty .
 
-slr:relatesToDecisionType a owl:ObjectProperty .
+###  http://purl.org/spar/fabio/ComputerProgram
+fabio:ComputerProgram rdf:type owl:Class ;
+                      rdfs:subClassOf fabio:Expression .
 
-slr:solves a owl:ObjectProperty .
 
-slr:stevmert_DeciClareMinerV11_Git a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/stevmert/DeciClareMinerV11/> .
+###  http://purl.org/spar/fabio/ConferencePaper
+fabio:ConferencePaper rdf:type owl:Class ;
+                      rdfs:subClassOf fabio:ProceedingsPaper .
 
-slr:stevmert_discoveryMethod_Git a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/stevmert/discoveryMethod> .
 
-slr:usesAlgorithm a owl:ObjectProperty .
+###  http://purl.org/spar/fabio/Dataset
+fabio:Dataset rdf:type owl:Class ;
+              rdfs:subClassOf fabio:Work .
 
-slr:usesModel a owl:ObjectProperty .
 
-rdf:value a owl:DatatypeProperty .
+###  http://purl.org/spar/fabio/DigitalManifestation
+fabio:DigitalManifestation rdf:type owl:Class ;
+                           rdfs:subClassOf fabio:Manifestation .
 
-prov:used a owl:ObjectProperty .
 
-datacite:ResourceIdentifier rdfs:subClassOf datacite:Identifier .
+###  http://purl.org/spar/fabio/Expression
+fabio:Expression rdf:type owl:Class .
 
-fabio:Algorithm rdfs:subClassOf fabio:Specification .
 
-fabio:ComputerProgram rdfs:subClassOf fabio:Expression .
+###  http://purl.org/spar/fabio/JournalArticle
+fabio:JournalArticle rdf:type owl:Class ;
+                     rdfs:subClassOf fabio:Article .
 
-fabio:Report rdfs:subClassOf fabio:Work .
 
-fabio:ReportDocument rdfs:subClassOf fabio:Expression .
+###  http://purl.org/spar/fabio/Manifestation
+fabio:Manifestation rdf:type owl:Class .
 
-fabio:ScholarlyWork rdfs:subClassOf fabio:Work .
 
-fabio:Specification rdfs:subClassOf fabio:Work .
+###  http://purl.org/spar/fabio/ProceedingsPaper
+fabio:ProceedingsPaper rdf:type owl:Class ;
+                       rdfs:subClassOf fabio:Article .
 
-fabio:TechnicalReport rdfs:subClassOf fabio:Report .
 
-slr:4TU_ResearchDataset_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.4121/uuid:270fd440-1057-4fb9-89a9-b699b47990f5" .
+###  http://purl.org/spar/fabio/Report
+fabio:Report rdf:type owl:Class ;
+             rdfs:subClassOf fabio:Work .
 
-slr:A.Jiménez-Ramírez rdfs:seeAlso <https://scholar.google.co.uk/citations?user=qxRi-4gAAAAJ&hl=en&oi=sra> .
 
-slr:A.Martínez-Rojas rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=qhMxtwMAAAAJ> .
+###  http://purl.org/spar/fabio/ReportDocument
+fabio:ReportDocument rdf:type owl:Class ;
+                     rdfs:subClassOf fabio:Expression .
 
-slr:Aaron.Küsters rdfs:seeAlso <https://scholar.google.com/citations?user=2Es2xEQAAAAJ&hl=en&oi=sra> .
 
-slr:Abdelhak.Khemiri rdfs:seeAlso <https://ieeexplore.ieee.org/author/37086608211> .
+###  http://purl.org/spar/fabio/ResearchPaper
+fabio:ResearchPaper rdf:type owl:Class ;
+                    rdfs:subClassOf fabio:ScholarlyWork .
 
-slr:Adam.Banham rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=IyiPbEAAAAAJ> .
 
-slr:Andrea.Ballarino rdfs:seeAlso <https://scholar.google.co.uk/citations?user=15zKPJwAAAAJ&hl=en&oi=sra> .
+###  http://purl.org/spar/fabio/ScholarlyWork
+fabio:ScholarlyWork rdf:type owl:Class ;
+                    rdfs:subClassOf fabio:Work .
 
-slr:BPIC12Dataset_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f" .
 
-slr:BPIC17Dataset_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.4121/uuid:5f3067df-f10b-45da-b98b-86ae4c7a310b" .
+###  http://purl.org/spar/fabio/Specification
+fabio:Specification rdf:type owl:Class ;
+                    rdfs:subClassOf fabio:Work .
 
-slr:BPIC19Dataset a fabio:Dataset ;
-    dct:subject slr:OrderManagement ;
-    datacite:hasDescription slr:Park_et_al.2023 ;
-    datacite:hasIdentifier slr:BPIC19Dataset_DOI .
 
-slr:BPIC19Dataset_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.4121/uuid:d06aff4b-79f0-45e6-8ec8-e19730c248f1" .
+###  http://purl.org/spar/fabio/TechnicalReport
+fabio:TechnicalReport rdf:type owl:Class ;
+                      rdfs:subClassOf fabio:Report .
 
-slr:BPIC20Dataset a fabio:Dataset ;
-    dct:subject slr:Tourism ;
-    datacite:hasDescription slr:Scheibel_et_al.Oct_2022 ;
-    datacite:hasIdentifier slr:BPIC20Dataset_DOI .
 
-slr:BPIC20Dataset_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.4121/uuid:52fb97d4-4588-43c9-9d04-3604d4613b51" .
+###  http://purl.org/spar/fabio/Work
+fabio:Work rdf:type owl:Class .
 
-slr:Banham_et_al.2022 a fabio:ResearchPaper ;
-    dct:creator slr:Adam.Banham,
-        slr:Moe.T.Wynn,
-        slr:Robert.Andrews,
-        slr:Sander.J.J.Leemans ;
-    frbr:realization slr:Banham_et_al.2022_Expression ;
-    slr:addressesProblem slr:MissingContextData ;
-    prov:used slr:MIMIC-IIIDataset .
 
-slr:Banham_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-030-98581-3_7" .
+###  http://purl.org/spar/fabio/WorkshopPaper
+fabio:WorkshopPaper rdf:type owl:Class ;
+                    rdfs:subClassOf fabio:ProceedingsPaper .
 
-slr:Banham_et_al.2022_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Banham_et_al.2022_DOI ;
-    fabio:hasPublicationYear "2022"^^xsd:year .
 
-slr:Banham_et_al.2024_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1109/ACCESS.2024.3391234" .
+###  https://purl.archive.org/slr/decisionmining.owl#DMAlgorithm
+:DMAlgorithm rdf:type owl:Class ;
+             rdfs:subClassOf fabio:Algorithm .
 
-slr:Banham_et_al.2024_Expression a fabio:JournalArticle ;
-    datacite:hasIdentifier slr:Banham_et_al.2024_DOI ;
-    fabio:hasPublicationYear "2024"^^xsd:year .
 
-slr:Benoît.Depaire rdfs:seeAlso <https://scholar.google.co.uk/citations?user=REbZ-KAAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#DMProblem
+:DMProblem rdf:type owl:Class .
 
-slr:Bilqis.Amaliah rdfs:seeAlso <https://scholar.google.com/citations?hl=en&user=9vF7m6gAAAAJ> .
 
-slr:Britt.Lukassen rdfs:comment "Eindhoven University of Technology, Eindhoven, The Netherlands" .
+###  https://purl.archive.org/slr/decisionmining.owl#DMSolution
+:DMSolution rdf:type owl:Class .
 
-slr:CRISPDataset a fabio:Dataset ;
-    dct:subject slr:Education ;
-    datacite:hasDescription slr:Winter_et_al.2017 ;
-    frbr:embodiment slr:CRISPDataset_Link_Embodiment .
 
-slr:CRISPDataset_Link_Embodiment a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://gruppe.wst.univie.ac.at/projects/crisp/index.php?m=D&t=discovery&c=show&CEWebS_what=Main> .
+###  https://purl.archive.org/slr/decisionmining.owl#DMTool
+:DMTool rdf:type owl:Class ;
+        rdfs:subClassOf fabio:ComputerProgram .
 
-slr:Cameron.Pitsch rdfs:seeAlso <https://scholar.google.com/citations?user=j-IE6ukAAAAJ&hl=en&oi=sra> .
 
-slr:Claudia.Frydman rdfs:seeAlso <https://ieeexplore.ieee.org/author/37354615300> .
+###  https://purl.archive.org/slr/decisionmining.owl#DecisionModel
+:DecisionModel rdf:type owl:Class ;
+               rdfs:subClassOf :Model .
 
-slr:CompareDMApproaches a slr:EvaluationProblem .
 
-slr:Crerie_et_al.2009_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-642-01862-6_12" .
+###  https://purl.archive.org/slr/decisionmining.owl#DecisionModelError
+:DecisionModelError rdf:type owl:Class ;
+                    rdfs:subClassOf :ModelBehavior .
 
-slr:Crerie_et_al.2009_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Crerie_et_al.2009_DOI ;
-    fabio:hasPublicationYear "2009"^^xsd:year .
 
-slr:Cuong.Pham-Nguyen rdfs:seeAlso <https://scholar.google.com/citations?user=SyTf3AQAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#DecisionsTypeProblem
+:DecisionsTypeProblem rdf:type owl:Class ;
+                      rdfs:subClassOf :DMProblem .
 
-slr:DPATS a slr:DMTool .
 
-slr:De_Smedt_et_al.2019 a fabio:ResearchPaper ;
-    frbr:realization slr:De_Smedt_et_al.2019_Expression ;
-    slr:addressesProblem slr:MissingDecisions ;
-    prov:used slr:BPIC17Dataset,
-        slr:P-MInDPlugin .
+###  https://purl.archive.org/slr/decisionmining.owl#EvaluationProblem
+:EvaluationProblem rdf:type owl:Class ;
+                   rdfs:subClassOf :DMProblem .
 
-slr:De_Smedt_et_al.2019_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1016/j.knosys.2019.104866" .
 
-slr:De_Smedt_et_al.2019_Expression a fabio:JournalArticle ;
-    datacite:hasIdentifier slr:De_Smedt_et_al.2019_DOI ;
-    fabio:hasPublicationYear "2019"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#EventLogsProblem
+:EventLogsProblem rdf:type owl:Class ;
+                  rdfs:subClassOf :DMProblem .
 
-slr:DecisionPointAnalysisPlugin a slr:ProMFramework .
 
-slr:Diego.Savoia rdfs:comment "Politecnico di Milano - DEIB, Milan, Italy" .
+###  https://purl.archive.org/slr/decisionmining.owl#Financial
+:Financial rdf:type owl:Class ;
+           rdfs:subClassOf :IndustryDomain .
 
-slr:Duc.Loc.Nguyen.Vo rdfs:seeAlso <https://dl.acm.org/profile/99660119534> .
 
-slr:Dunkl_et_al.2015_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-319-19270-3_5" .
+###  https://purl.archive.org/slr/decisionmining.owl#GlobalDecisions
+:GlobalDecisions rdf:type owl:Class ;
+                 rdfs:subClassOf :DecisionsTypeProblem .
 
-slr:Dunkl_et_al.2015_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Dunkl_et_al.2015_DOI ;
-    fabio:hasPublicationYear "2015"^^xsd:year .
 
-slr:Felix.Mannhardt rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=s1HfgbcAAAAJ> .
+###  https://purl.archive.org/slr/decisionmining.owl#IncompleteLogs
+:IncompleteLogs rdf:type owl:Class ;
+                rdfs:subClassOf :EventLogsProblem .
 
-slr:Fernanda.Araujo.Baião rdfs:seeAlso <https://scholar.google.co.uk/citations?user=BU2qW_gAAAAJ&hl=en&oi=sra> .
 
-slr:Flávia.Maria.Santoro rdfs:seeAlso <https://scholar.google.co.uk/citations?user=HhVcLMUAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#IndustryDomain
+:IndustryDomain rdf:type owl:Class .
 
-slr:GoogleMerchandiseStoredataset a fabio:Dataset ;
-    dct:subject slr:Retail ;
-    datacite:hasDescription slr:Nguyen_Chan_et_al.2022 ;
-    frbr:embodiment slr:GoogleMerchandiseStoredataset_Link_Embodiment .
 
-slr:GoogleMerchandiseStoredataset_Link_Embodiment a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://www.kaggle.com/datasets/bigquery/google-analytics-sample> .
+###  https://purl.archive.org/slr/decisionmining.owl#InjectKnowledge
+:InjectKnowledge rdf:type owl:Class ;
+                 rdfs:subClassOf :DMSolution .
 
-slr:Gyunam.Park rdfs:seeAlso <https://scholar.google.com/citations?user=pizUQ6gAAAAJ&hl=en&oi=sra> .
 
-slr:Hari.Ginardi rdfs:seeAlso <https://scholar.google.com/citations?user=pED0WkoAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#Manufacturing
+:Manufacturing rdf:type owl:Class ;
+               rdfs:subClassOf :IndustryDomain .
 
-slr:Hasic_et_al.2022 a fabio:ResearchPaper ;
-    frbr:realization slr:Hasic_et_al.2022_Expression ;
-    prov:used slr:BPIC17Dataset,
-        slr:SOAP-MInD .
 
-slr:Hasic_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1109/TSC.2020.2965516" .
+###  https://purl.archive.org/slr/decisionmining.owl#Model
+:Model rdf:type owl:Class .
 
-slr:Hasic_et_al.2022_Expression a fabio:JournalArticle ;
-    datacite:hasIdentifier slr:Hasic_et_al.2022_DOI ;
-    fabio:hasPublicationYear "2022"^^xsd:year .
 
-slr:HealthRecord_EHR_SystemDataset a fabio:Dataset ;
-    dct:subject slr:Healthcare ;
-    datacite:hasDescription slr:Mertens_et_al.2022 ;
-    frbr:embodiment slr:stevmert_discoveryMethod_Git_Embodiment .
+###  https://purl.archive.org/slr/decisionmining.owl#ModelBehavior
+:ModelBehavior rdf:type owl:Class ;
+               rdfs:subClassOf :ModelEvaluation .
 
-slr:InjectKnowledge rdfs:subClassOf slr:DMSolution .
 
-slr:J.G.Enríquez rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=uMfdKyEAAAAJ> .
+###  https://purl.archive.org/slr/decisionmining.owl#ModelCon
+:ModelCon rdf:type owl:Class ;
+          rdfs:subClassOf :ModelProAndCon .
 
-slr:Jacques.Pinaton rdfs:seeAlso <https://ieeexplore.ieee.org/author/37547406500> .
 
-slr:Jareevongpiboon_et_al.2011_Embodiment0 a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://aisel.aisnet.org/iceb2011/5/> .
+###  https://purl.archive.org/slr/decisionmining.owl#ModelEvaluation
+:ModelEvaluation rdf:type owl:Class .
 
-slr:Jareevongpiboon_et_al.2011_Expression a fabio:ConferencePaper ;
-    fabio:hasPublicationYear "2011"^^xsd:year ;
-    frbr:embodiment slr:Jareevongpiboon_et_al.2011_Embodiment0 .
 
-slr:Jonathan.Schneider rdfs:comment "RWTH Aachen University, Aachen, Germany" .
+###  https://purl.archive.org/slr/decisionmining.owl#ModelEvaluationMetrics
+:ModelEvaluationMetrics rdf:type owl:Class ;
+                        rdfs:subClassOf :ModelEvaluation .
 
-slr:Jouck_et_al.2019_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-030-11641-5_38" .
 
-slr:Jouck_et_al.2019_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Jouck_et_al.2019_DOI ;
-    fabio:hasPublicationYear "2019"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#ModelPro
+:ModelPro rdf:type owl:Class ;
+          rdfs:subClassOf :ModelProAndCon .
 
-slr:KNIME a slr:DMTool .
 
-slr:Karl.Anton.Fröschl rdfs:comment "Faculty of Computer Science, University of Vienna, Vienna, Austria" .
+###  https://purl.archive.org/slr/decisionmining.owl#ModelProAndCon
+:ModelProAndCon rdf:type owl:Class .
 
-slr:Karolin.Winter rdfs:seeAlso <https://scholar.google.com/citations?user=EWS4nf0AAAAJ&hl=en&oi=sra> .
 
-slr:Khemiri_et_al.2018_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1109/WSC.2018.8632509" .
+###  https://purl.archive.org/slr/decisionmining.owl#ProMFramework
+:ProMFramework rdf:type owl:Class ;
+               rdfs:subClassOf :DMTool .
 
-slr:Khemiri_et_al.2018_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Khemiri_et_al.2018_DOI ;
-    fabio:hasPublicationYear "2018"^^xsd:year .
 
-slr:Laura.Genga rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=bgUFsOUAAAAJ> .
+###  https://purl.archive.org/slr/decisionmining.owl#ProcessModelBehaviorAndErrors
+:ProcessModelBehaviorAndErrors rdf:type owl:Class ;
+                               rdfs:subClassOf :ModelBehavior .
 
-slr:Leoni_et_al.2013 a fabio:ResearchPaper ;
-    dct:creator slr:Massimiliano.de.Leoni,
-        slr:Wil.M.P.van.der.Aalst ;
-    frbr:realization slr:Leoni_et_al.2013_Expression ;
-    slr:addressesProblem slr:DeviatingLogs ;
-    prov:used slr:BPIC12Dataset,
-        slr:ProMPlugin .
 
-slr:Leoni_et_al.2013_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1145/2480362.2480633" .
+###  https://purl.archive.org/slr/decisionmining.owl#Sales
+:Sales rdf:type owl:Class ;
+       rdfs:subClassOf :IndustryDomain .
 
-slr:Leoni_et_al.2013_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Leoni_et_al.2013_DOI ;
-    fabio:hasPublicationYear "2013"^^xsd:year .
 
-slr:LoanApplocationDataset a fabio:Dataset ;
-    dct:subject slr:Finance ;
-    datacite:hasDescription slr:Scheibel_et_al.Oct_2022 ;
-    frbr:embodiment slr:bscheibel_dmma_Git_Embodiment .
+###  https://purl.archive.org/slr/decisionmining.owl#Service
+:Service rdf:type owl:Class ;
+         rdfs:subClassOf :IndustryDomain .
 
-slr:Lukassen_et_al.2023_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-031-44505-7_31" .
 
-slr:Lukassen_et_al.2023_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Lukassen_et_al.2023_DOI ;
-    fabio:hasPublicationYear "2023"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#TypeOfDecision
+:TypeOfDecision rdf:type owl:Class .
 
-slr:MIMIC-IIIDataset a fabio:Dataset ;
-    dct:subject slr:Healthcare ;
-    datacite:hasDescription slr:Banham_et_al.2022 ;
-    frbr:embodiment slr:adamBanham_icpm2021_Git_Embodiment .
 
-slr:Maamar.El.Amine.Hamri rdfs:seeAlso <https://scholar.google.com/citations?user=JONdrsoAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#TypeOfModelProblem
+:TypeOfModelProblem rdf:type owl:Class ;
+                    rdfs:subClassOf :DMProblem .
 
-slr:Mannhardt_et_al.2016_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-319-39696-5_23" .
 
-slr:Mannhardt_et_al.2016_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Mannhardt_et_al.2016_DOI ;
-    fabio:hasPublicationYear "2016"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#WekaLibrary
+:WekaLibrary rdf:type owl:Class ;
+             rdfs:subClassOf :DMTool .
 
-slr:ManufacturingDataset_dmma a fabio:Dataset ;
-    dct:subject slr:manufacturing ;
-    datacite:hasDescription slr:Scheibel_et_al.Oct_2022 ;
-    frbr:embodiment slr:bscheibel_dmma_Git_Embodiment .
 
-slr:ManufacturingDataset_edt-ts a fabio:Dataset ;
-    dct:subject slr:manufacturing ;
-    datacite:hasDescription slr:Scheibel_et_al.Jun_2022 ;
-    frbr:embodiment slr:bscheibel_edt-ts_Git_Embodiment .
+###  https://purl.archive.org/slr/decisionmining.owl#WorkflowModel
+:WorkflowModel rdf:type owl:Class ;
+               rdfs:subClassOf :Model .
 
-slr:Mara.Tews rdfs:comment "RWTH Aachen University, Aachen, Germany" .
 
-slr:Martinez-Rojas_et_al.2022 a fabio:ResearchPaper ;
-    dct:creator slr:A.Jiménez-Ramírez,
-        slr:A.Martínez-Rojas,
-        slr:Hajo.A.Reijers,
-        slr:J.G.Enríquez ;
-    frbr:realization slr:Martinez-Rojas_et_al.2022_Expression ;
-    slr:addressesProblem slr:MissingContextData ;
-    prov:used slr:UISLogDataset .
+#################################################################
+#    Individuals
+#################################################################
 
-slr:Martinez-Rojas_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-031-16103-2_8" .
+###  http://purl.org/spar/datacite/doi
+datacite:doi rdf:type owl:NamedIndividual .
 
-slr:Martinez-Rojas_et_al.2022_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Martinez-Rojas_et_al.2022_DOI ;
-    fabio:hasPublicationYear "2022"^^xsd:year .
 
-slr:Matteo.Matteucci rdfs:seeAlso <https://scholar.google.co.uk/citations?user=PdbEg5YAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#A.Jiménez-Ramírez
+:A.Jiménez-Ramírez rdf:type owl:NamedIndividual ;
+                   rdfs:seeAlso <https://scholar.google.co.uk/citations?user=qxRi-4gAAAAJ&hl=en&oi=sra> .
 
-slr:Mertens_et_al.2018_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1080/20476965.2017.1405876" .
 
-slr:Mertens_et_al.2018_Expression a fabio:JournalArticle ;
-    datacite:hasIdentifier slr:Mertens_et_al.2018_DOI ;
-    fabio:hasPublicationYear "2018"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#A.Martínez-Rojas
+:A.Martínez-Rojas rdf:type owl:NamedIndividual ;
+                  rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=qhMxtwMAAAAJ> .
 
-slr:Mertens_et_al.2022 a fabio:ResearchPaper ;
-    frbr:realization slr:Mertens_et_al.2022_Expression ;
-    slr:addressesProblem slr:ModelSuitability ;
-    prov:used slr:DeciClareMiner,
-        slr:HealthRecord_EHR_SystemDataset .
 
-slr:Mertens_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/s10796-020-10078-5" .
+###  https://purl.archive.org/slr/decisionmining.owl#A.Rozinat
+:A.Rozinat rdf:type owl:NamedIndividual ;
+           rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=ZJ0SJusAAAAJ> .
 
-slr:Mertens_et_al.2022_Expression a fabio:JournalArticle ;
-    datacite:hasIdentifier slr:Mertens_et_al.2022_DOI ;
-    fabio:hasPublicationYear "2022"^^xsd:year .
 
-slr:Moe.T.Wynn rdfs:seeAlso <https://scholar.google.co.uk/citations?user=HV1NIvcAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#Aaron.Küsters
+:Aaron.Küsters rdf:type owl:NamedIndividual ;
+               rdfs:seeAlso <https://scholar.google.com/citations?user=2Es2xEQAAAAJ&hl=en&oi=sra> .
 
-slr:My.Hang.Vu.Thi rdfs:seeAlso <https://scholar.google.com/citations?hl=en&user=g1uPhCAAAAAJ> .
 
-slr:Nam.Nguyen.Chan rdfs:seeAlso <https://scholar.google.com/citations?user=dOGx55MAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#Abdelhak.Khemiri
+:Abdelhak.Khemiri rdf:type owl:NamedIndividual ;
+                  rdfs:seeAlso <https://ieeexplore.ieee.org/author/37086608211> .
 
-slr:Nguyen.Anh.Khoa.Dam rdfs:seeAlso <https://dl.acm.org/profile/99660108171> .
 
-slr:Nguyen_Chan_et_al.2022 a fabio:ResearchPaper ;
-    dct:creator slr:Cuong.Pham-Nguyen,
-        slr:Duc.Loc.Nguyen.Vo,
-        slr:My.Hang.Vu.Thi,
-        slr:Nam.Nguyen.Chan,
-        slr:Nguyen.Anh.Khoa.Dam,
-        slr:Thang.Le.Dinh,
-        slr:Thanh.Thoa.Pham.Thi ;
-    frbr:realization slr:Nguyen_Chan_et_al.2022_Expression ;
-    prov:used slr:GoogleMerchandiseStoredataset,
-        slr:Scikit-learn .
+###  https://purl.archive.org/slr/decisionmining.owl#Adam.Banham
+:Adam.Banham rdf:type owl:NamedIndividual ;
+             rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=IyiPbEAAAAAJ> .
 
-slr:Nguyen_Chan_et_al.2022_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1145/3508072.3508075" .
 
-slr:Nguyen_Chan_et_al.2022_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Nguyen_Chan_et_al.2022_DOI ;
-    fabio:hasPublicationYear "2022"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#AdamBanham_data-aware-conformance_Git
+:AdamBanham_data-aware-conformance_Git rdf:type owl:NamedIndividual ,
+                                                fabio:DigitalManifestation ;
+                                       rdfs:seeAlso <https://github.com/AdamBanham/data-aware-conformance> .
 
-slr:P-MInDPlugin a slr:ProMFramework,
-        slr:WekaLibrary .
 
-slr:P.Janecek rdfs:seeAlso <https://scholar.google.com/citations?user=a-9_oekAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#AddNon-mutexOperator
+:AddNon-mutexOperator rdf:type owl:NamedIndividual ,
+                               :DMSolution .
 
-slr:PTandLogGeneratorPackage a slr:ProMFramework .
 
-slr:Park_et_al.2023_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-031-26507-5_6" .
+###  https://purl.archive.org/slr/decisionmining.owl#Administrative
+:Administrative rdf:type owl:NamedIndividual ,
+                         :Service .
 
-slr:Park_et_al.2023_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Park_et_al.2023_DOI ;
-    fabio:hasPublicationYear "2023"^^xsd:year .
 
-slr:Pietro.Portolani rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=Yv4Ts8cAAAAJ> .
+###  https://purl.archive.org/slr/decisionmining.owl#AdvancedML
+:AdvancedML rdf:type owl:NamedIndividual ,
+                     :DMSolution .
 
-slr:Pmkoalas a slr:DMTool .
 
-slr:Portolani_et_al.2023 a fabio:ResearchPaper ;
-    dct:creator slr:Andrea.Ballarino,
-        slr:Diego.Savoia,
-        slr:Matteo.Matteucci,
-        slr:Pietro.Portolani ;
-    frbr:realization slr:Portolani_et_al.2023_Expression ;
-    slr:addressesProblem slr:ModelConstructs ;
-    prov:used slr:4TU_ResearchDataset .
+###  https://purl.archive.org/slr/decisionmining.owl#Align
+:Align rdf:type owl:NamedIndividual ,
+                :DMSolution .
 
-slr:Portolani_et_al.2023_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-031-34241-7_6" .
 
-slr:Portolani_et_al.2023_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Portolani_et_al.2023_DOI ;
-    fabio:hasPublicationYear "2023"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#Andrea.Ballarino
+:Andrea.Ballarino rdf:type owl:NamedIndividual ;
+                  rdfs:seeAlso <https://scholar.google.co.uk/citations?user=15zKPJwAAAAJ&hl=en&oi=sra> .
 
-slr:Raphael.Crerie rdfs:comment "Research and Practice Group in Information Technology, Department of Applied Informatics, Federal University of the State of Rio de Janeiro (UNIRIO), Brazil" .
 
-slr:Reinhold.Dunkl rdfs:seeAlso <https://pubmed.ncbi.nlm.nih.gov/?term=Dunkl+R&cauthor_id=30544735> .
+###  https://purl.archive.org/slr/decisionmining.owl#BPIC12Dataset
+:BPIC12Dataset rdf:type owl:NamedIndividual ,
+                        fabio:Dataset ;
+               dct:subject :Finance ;
+               datacite:hasDescription :Leoni_et_al.2013 ,
+                                       :Park_et_al.2023 ,
+                                       :Scheibel_et_al.Oct_2022 ;
+               datacite:hasIdentifier :BPIC12Dataset_DOI .
 
-slr:Robert.Andrews rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=ffknJrMAAAAJ> .
 
-slr:Rozinat_et_al_BPM.2006_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/11841760_33" .
+###  https://purl.archive.org/slr/decisionmining.owl#BPIC12Dataset_DOI
+:BPIC12Dataset_DOI rdf:type owl:NamedIndividual ,
+                            datacite:PrimaryResourceIdentifier ;
+                   datacite:usesIdentifierScheme datacite:doi ;
+                   rdf:value "10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f" .
 
-slr:Rozinat_et_al_BPM.2006_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Rozinat_et_al_BPM.2006_DOI ;
-    fabio:hasPublicationYear "2006"^^xsd:year .
 
-slr:Rozinat_et_al_TUe.2006_Embodiment0 a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://research.tue.nl/files/1750830/609514.pdf> .
+###  https://purl.archive.org/slr/decisionmining.owl#BPIC17Dataset
+:BPIC17Dataset rdf:type owl:NamedIndividual ,
+                        fabio:Dataset ;
+               dct:subject :Finance ;
+               datacite:hasDescription :De_Smedt_et_al.2019 ,
+                                       :Hasic_et_al.2022 ;
+               datacite:hasIdentifier :BPIC17Dataset_DOI .
 
-slr:Rozinat_et_al_TUe.2006_Expression a fabio:ReportDocument ;
-    fabio:hasPublicationYear "2006"^^xsd:year ;
-    frbr:embodiment slr:Rozinat_et_al_TUe.2006_Embodiment0 .
 
-slr:SOAP-MInD a slr:ProMFramework .
+###  https://purl.archive.org/slr/decisionmining.owl#BPIC17Dataset_DOI
+:BPIC17Dataset_DOI rdf:type owl:NamedIndividual ,
+                            datacite:PrimaryResourceIdentifier ;
+                   datacite:usesIdentifierScheme datacite:doi ;
+                   rdf:value "10.4121/uuid:5f3067df-f10b-45da-b98b-86ae4c7a310b" .
 
-slr:Sander.J.J.Leemans rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=5_gCz9oAAAAJ> .
 
-slr:Sarno_et_al.2013_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1109/IC3INA.2013.6819197" .
+###  https://purl.archive.org/slr/decisionmining.owl#BPIC19Dataset
+:BPIC19Dataset rdf:type owl:NamedIndividual ,
+                        fabio:Dataset ;
+               dct:subject :OrderManagement ;
+               datacite:hasDescription :Park_et_al.2023 ;
+               datacite:hasIdentifier :BPIC19Dataset_DOI .
 
-slr:Sarno_et_al.2013_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Sarno_et_al.2013_DOI ;
-    fabio:hasPublicationYear "2013"^^xsd:year .
 
-slr:Sarno_et_al.2014_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1109/ICTS.2014.7010557" .
+###  https://purl.archive.org/slr/decisionmining.owl#BPIC19Dataset_DOI
+:BPIC19Dataset_DOI rdf:type owl:NamedIndividual ,
+                            datacite:PrimaryResourceIdentifier ;
+                   datacite:usesIdentifierScheme datacite:doi ;
+                   rdf:value "10.4121/uuid:d06aff4b-79f0-45e6-8ec8-e19730c248f1" .
 
-slr:Sarno_et_al.2014_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Sarno_et_al.2014_DOI ;
-    fabio:hasPublicationYear "2014"^^xsd:year .
 
-slr:Scheibel_et_al.Jun_2022_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-031-07472-1_1" .
+###  https://purl.archive.org/slr/decisionmining.owl#BPIC20Dataset
+:BPIC20Dataset rdf:type owl:NamedIndividual ,
+                        fabio:Dataset ;
+               dct:subject :Tourism ;
+               datacite:hasDescription :Scheibel_et_al.Oct_2022 ;
+               datacite:hasIdentifier :BPIC20Dataset_DOI .
 
-slr:Scheibel_et_al.Jun_2022_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Scheibel_et_al.Jun_2022_DOI ;
-    fabio:hasPublicationYear "2022"^^xsd:year .
 
-slr:Scheibel_et_al.Oct_2022_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1007/978-3-031-17995-2_19" .
+###  https://purl.archive.org/slr/decisionmining.owl#BPIC20Dataset_DOI
+:BPIC20Dataset_DOI rdf:type owl:NamedIndividual ,
+                            datacite:PrimaryResourceIdentifier ;
+                   datacite:usesIdentifierScheme datacite:doi ;
+                   rdf:value "10.4121/uuid:52fb97d4-4588-43c9-9d04-3604d4613b51" .
 
-slr:Scheibel_et_al.Oct_2022_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Scheibel_et_al.Oct_2022_DOI ;
-    fabio:hasPublicationYear "2022"^^xsd:year .
 
-slr:SepsisDataset_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460" .
+###  https://purl.archive.org/slr/decisionmining.owl#BPMN
+:BPMN rdf:type owl:NamedIndividual ,
+               :WorkflowModel .
 
-slr:SupplyChainDataset_edt-ts a fabio:Dataset ;
-    dct:subject slr:SupplyChain ;
-    datacite:hasDescription slr:Scheibel_et_al.Jun_2022 ;
-    frbr:embodiment slr:bscheibel_edt-ts_Git_Embodiment .
 
-slr:TemporalDecisions a slr:GlobalDecisions,
-        slr:TypesOfDecision .
+###  https://purl.archive.org/slr/decisionmining.owl#Banham_et_al.2022
+:Banham_et_al.2022 rdf:type owl:NamedIndividual ,
+                            fabio:ResearchPaper ;
+                   dct:creator :Adam.Banham ,
+                               :Moe.T.Wynn ,
+                               :Robert.Andrews ,
+                               :Sander.J.J.Leemans ;
+                   frbr:realization :Banham_et_al.2022_Expression ;
+                   prov:used :MIMIC-IIIDataset ;
+                   :addressesProblem :MissingContextData .
 
-slr:Thang.Le.Dinh rdfs:seeAlso <https://scholar.google.com/citations?user=T34rl4UAAAAJ&hl=en&oi=sra> .
 
-slr:Thanh.Thoa.Pham.Thi rdfs:seeAlso <https://scholar.google.com/citations?user=-YIU7LoAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#Banham_et_al.2022_DOI
+:Banham_et_al.2022_DOI rdf:type owl:NamedIndividual ,
+                                datacite:PrimaryResourceIdentifier ;
+                       datacite:usesIdentifierScheme datacite:doi ;
+                       rdf:value "10.1007/978-3-030-98581-3_7" .
 
-slr:Toon.Jouck rdfs:comment "UHasselt - Hasselt University, Hasselt, Belgium" .
 
-slr:TourismDataset_dmma a fabio:Dataset ;
-    dct:subject slr:Tourism ;
-    datacite:hasDescription slr:Scheibel_et_al.Oct_2022 ;
-    frbr:embodiment slr:bscheibel_dmma_Git_Embodiment .
+###  https://purl.archive.org/slr/decisionmining.owl#Banham_et_al.2022_Expression
+:Banham_et_al.2022_Expression rdf:type owl:NamedIndividual ,
+                                       fabio:ConferencePaper ;
+                              datacite:hasIdentifier :Banham_et_al.2022_DOI ;
+                              fabio:hasPublicationYear "2022"^^xsd:year .
 
-slr:Tsfresh a slr:DMTool .
 
-slr:UISLogDataset a fabio:Dataset ;
-    dct:subject slr:Administrative ;
-    datacite:hasDescription slr:Martinez-Rojas_et_al.2022 ;
-    datacite:hasIdentifier slr:UISLogDataset_DOI .
+###  https://purl.archive.org/slr/decisionmining.owl#Banham_et_al.2024
+:Banham_et_al.2024 rdf:type owl:NamedIndividual ,
+                            fabio:ResearchPaper ;
+                   frbr:realization :Banham_et_al.2024_Expression ;
+                   prov:used :Pmkoalas ;
+                   :addressesProblem :MissingContextData .
 
-slr:UISLogDataset_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.5281/zenodo.5734323" .
 
-slr:W.Jareevongpiboon rdfs:seeAlso <https://scholar.google.com/citations?user=l1ZzK0MAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#Banham_et_al.2024_DOI
+:Banham_et_al.2024_DOI rdf:type owl:NamedIndividual ,
+                                datacite:PrimaryResourceIdentifier ;
+                       datacite:usesIdentifierScheme datacite:doi ;
+                       rdf:value "10.1109/ACCESS.2024.3391234" .
 
-slr:WebApplication a slr:DMTool .
 
-slr:WekaLibraryIndividual a slr:WekaLibrary .
+###  https://purl.archive.org/slr/decisionmining.owl#Banham_et_al.2024_Expression
+:Banham_et_al.2024_Expression rdf:type owl:NamedIndividual ,
+                                       fabio:JournalArticle ;
+                              datacite:hasIdentifier :Banham_et_al.2024_DOI ;
+                              fabio:hasPublicationYear "2024"^^xsd:year .
 
-slr:Wilfried.Grossmann rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=opeGt1EAAAAJ> .
 
-slr:Winter_et_al.2017 a fabio:ResearchPaper ;
-    dct:creator slr:Karolin.Winter,
-        slr:Stefanie.Rinderle-Ma ;
-    frbr:realization slr:Winter_et_al.2017_Expression ;
-    slr:addressesProblem slr:Instance-spanningConstraint ;
-    prov:used slr:CRISPDataset .
+###  https://purl.archive.org/slr/decisionmining.owl#Beate.Scheibel
+:Beate.Scheibel rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=X-N8WScAAAAJ> .
 
-slr:Winter_et_al.2017_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1109/EDOC.2017.20" .
 
-slr:Winter_et_al.2017_Expression a fabio:ConferencePaper ;
-    datacite:hasIdentifier slr:Winter_et_al.2017_DOI ;
-    fabio:hasPublicationYear "2017"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#Benoît.Depaire
+:Benoît.Depaire rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.co.uk/citations?user=REbZ-KAAAAAJ&hl=en&oi=sra> .
 
-slr:Winter_et_al.2020_DOI a datacite:PrimaryResourceIdentifier ;
-    datacite:usesIdentifierScheme datacite:doi ;
-    rdf:value "10.1016/j.is.2019.101484" .
 
-slr:Winter_et_al.2020_Expression a fabio:JournalArticle ;
-    datacite:hasIdentifier slr:Winter_et_al.2020_DOI ;
-    fabio:hasPublicationYear "2020"^^xsd:year .
+###  https://purl.archive.org/slr/decisionmining.owl#Bilqis.Amaliah
+:Bilqis.Amaliah rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.com/citations?hl=en&user=9vF7m6gAAAAJ> .
 
-slr:Yingqian.Zhang rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=7sTIWeYAAAAJ> .
 
-slr:adamBanham_icpm2021_Git_Embodiment a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/adamBanham/icpm2021> .
+###  https://purl.archive.org/slr/decisionmining.owl#Britt.Lukassen
+:Britt.Lukassen rdf:type owl:NamedIndividual ;
+                rdfs:comment "Eindhoven University of Technology, Eindhoven, The Netherlands" .
 
-slr:stevmert_discoveryMethod_Git_Embodiment a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/stevmert/discoveryMethod> .
 
-fabio:Article rdfs:subClassOf fabio:Expression .
+###  https://purl.archive.org/slr/decisionmining.owl#CRISPDataset
+:CRISPDataset rdf:type owl:NamedIndividual ,
+                       fabio:Dataset ;
+              dct:subject :Education ;
+              datacite:hasDescription :Winter_et_al.2017 ;
+              frbr:embodiment :CRISPDataset_Link_Embodiment .
 
-fabio:ProceedingsPaper rdfs:subClassOf fabio:Article .
 
-slr:4TU_ResearchDataset a fabio:Dataset ;
-    dct:subject slr:RoadTrafficFineManagement ;
-    datacite:hasDescription slr:Mannhardt_et_al.2016,
-        slr:Portolani_et_al.2023 ;
-    datacite:hasIdentifier slr:4TU_ResearchDataset_DOI .
+###  https://purl.archive.org/slr/decisionmining.owl#CRISPDataset_Link_Embodiment
+:CRISPDataset_Link_Embodiment rdf:type owl:NamedIndividual ,
+                                       fabio:DigitalManifestation ;
+                              rdfs:seeAlso <https://gruppe.wst.univie.ac.at/projects/crisp/index.php?m=D&t=discovery&c=show&CEWebS_what=Main> .
 
-slr:A.Rozinat rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=ZJ0SJusAAAAJ> .
 
-slr:BPIC17Dataset a fabio:Dataset ;
-    dct:subject slr:Finance ;
-    datacite:hasDescription slr:De_Smedt_et_al.2019,
-        slr:Hasic_et_al.2022 ;
-    datacite:hasIdentifier slr:BPIC17Dataset_DOI .
+###  https://purl.archive.org/slr/decisionmining.owl#Cameron.Pitsch
+:Cameron.Pitsch rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.com/citations?user=j-IE6ukAAAAJ&hl=en&oi=sra> .
 
-slr:Beate.Scheibel rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=X-N8WScAAAAJ> .
 
-slr:DeciClareMiner a slr:DMTool .
+###  https://purl.archive.org/slr/decisionmining.owl#Centrifuge
+:Centrifuge rdf:type owl:NamedIndividual ,
+                     :Manufacturing .
 
-slr:DeviatingLogs a slr:EventLogsProblem .
 
-slr:Dwi.Sunaryono rdfs:seeAlso <https://scholar.google.com/citations?user=t0sbqxQAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#Claudia.Frydman
+:Claudia.Frydman rdf:type owl:NamedIndividual ;
+                 rdfs:seeAlso <https://ieeexplore.ieee.org/author/37354615300> .
 
-slr:DynamicDecisionRules a slr:DecisionsTypeProblem .
 
-slr:EvaluationProblem rdfs:subClassOf slr:DMProblem .
+###  https://purl.archive.org/slr/decisionmining.owl#CompareDMApproaches
+:CompareDMApproaches rdf:type owl:NamedIndividual ,
+                              :EvaluationProblem .
 
-slr:EventLogsProblem rdfs:subClassOf slr:DMProblem .
 
-slr:GlobalDecisions rdfs:subClassOf slr:DecisionsTypeProblem .
+###  https://purl.archive.org/slr/decisionmining.owl#Conformance
+:Conformance rdf:type owl:NamedIndividual ,
+                      :EvaluationProblem .
 
-slr:Hajo.A.Reijers rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=hsfC0rEAAAAJ> .
 
-slr:Imam.Mukhlash rdfs:seeAlso <https://scholar.google.com/citations?user=2MBZF7EAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#CreditApplicationWorkflow
+:CreditApplicationWorkflow rdf:type owl:NamedIndividual ,
+                                    :Financial .
 
-slr:IncompleteLogs rdfs:subClassOf slr:EventLogsProblem .
 
-slr:Instance-spanningConstraint a slr:GlobalDecisions .
+###  https://purl.archive.org/slr/decisionmining.owl#Crerie_et_al.2009
+:Crerie_et_al.2009 rdf:type owl:NamedIndividual ,
+                            fabio:ResearchPaper ;
+                   dct:creator :Fernanda.Araujo.Baião ,
+                               :Flávia.Maria.Santoro ,
+                               :Raphael.Crerie ;
+                   frbr:realization :Crerie_et_al.2009_Expression ;
+                   prov:used :ProMPlugin ,
+                             :WekaLibraryIndividual ;
+                   :addressesProblem :MultipleTypesOfDecisions .
 
-slr:Mannhardt_et_al.2016 a fabio:ResearchPaper ;
-    dct:creator slr:Felix.Mannhardt,
-        slr:Hajo.A.Reijers,
-        slr:Massimiliano.de.Leoni,
-        slr:Wil.M.P.van.der.Aalst ;
-    frbr:realization slr:Mannhardt_et_al.2016_Expression ;
-    slr:addressesProblem slr:OverlappingDecisionRules ;
-    prov:used slr:4TU_ResearchDataset,
-        slr:SepsisDataset .
 
-slr:MissingDecisions a slr:IncompleteLogs .
+###  https://purl.archive.org/slr/decisionmining.owl#Crerie_et_al.2009_DOI
+:Crerie_et_al.2009_DOI rdf:type owl:NamedIndividual ,
+                                datacite:PrimaryResourceIdentifier ;
+                       datacite:usesIdentifierScheme datacite:doi ;
+                       rdf:value "10.1007/978-3-642-01862-6_12" .
 
-slr:MultipleTypesOfDecisions a slr:DecisionsTypeProblem .
 
-slr:OverlappingDecisionRules a slr:DecisionsTypeProblem .
+###  https://purl.archive.org/slr/decisionmining.owl#Crerie_et_al.2009_Expression
+:Crerie_et_al.2009_Expression rdf:type owl:NamedIndividual ,
+                                       fabio:ConferencePaper ;
+                              datacite:hasIdentifier :Crerie_et_al.2009_DOI ;
+                              fabio:hasPublicationYear "2009"^^xsd:year .
 
-slr:Park_et_al.2023 a fabio:ResearchPaper ;
-    dct:creator slr:Aaron.Küsters,
-        slr:Cameron.Pitsch,
-        slr:Gyunam.Park,
-        slr:Jonathan.Schneider,
-        slr:Mara.Tews,
-        slr:Wil.M.P.van.der.Aalst ;
-    frbr:realization slr:Park_et_al.2023_Expression ;
-    prov:used slr:BPIC12Dataset,
-        slr:BPIC19Dataset,
-        slr:WebApplication .
 
-slr:Putu.Linda.Indita.Sari rdfs:seeAlso <https://ieeexplore.ieee.org/author/37087457789> .
+###  https://purl.archive.org/slr/decisionmining.owl#CrisisManagement
+:CrisisManagement rdf:type owl:NamedIndividual ,
+                           :Service .
 
-slr:Riyanarto.Sarno rdfs:seeAlso <https://scholar.google.com/citations?user=QOMOtp0AAAAJ&hl=en&oi=sra> .
 
-slr:Scheibel_et_al.Jun_2022 a fabio:ResearchPaper ;
-    dct:creator slr:Beate.Scheibel,
-        slr:Stefanie.Rinderle-Ma ;
-    frbr:realization slr:Scheibel_et_al.Jun_2022_Expression ;
-    slr:addressesProblem slr:MissingContextData ;
-    prov:used slr:ManufacturingDataset_edt-ts,
-        slr:Scikit-learn,
-        slr:SupplyChainDataset_edt-ts,
-        slr:Tsfresh .
+###  https://purl.archive.org/slr/decisionmining.owl#Cuong.Pham-Nguyen
+:Cuong.Pham-Nguyen rdf:type owl:NamedIndividual ;
+                   rdfs:seeAlso <https://scholar.google.com/citations?user=SyTf3AQAAAAJ&hl=en&oi=sra> .
 
-slr:SepsisDataset a fabio:Dataset ;
-    dct:subject slr:Healthcare ;
-    datacite:hasDescription slr:Mannhardt_et_al.2016,
-        slr:Scheibel_et_al.Oct_2022 ;
-    datacite:hasIdentifier slr:SepsisDataset_DOI .
 
-slr:TypeOfModelProblem rdfs:subClassOf slr:DMProblem .
+###  https://purl.archive.org/slr/decisionmining.owl#DFG
+:DFG rdf:type owl:NamedIndividual ,
+              :WorkflowModel .
 
-slr:bscheibel_edt-ts_Git_Embodiment a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/bscheibel/edt-ts/tree/main/data> .
 
-slr:BPIC12Dataset a fabio:Dataset ;
-    dct:subject slr:Finance ;
-    datacite:hasDescription slr:Leoni_et_al.2013,
-        slr:Park_et_al.2023,
-        slr:Scheibel_et_al.Oct_2022 ;
-    datacite:hasIdentifier slr:BPIC12Dataset_DOI .
+###  https://purl.archive.org/slr/decisionmining.owl#DMN
+:DMN rdf:type owl:NamedIndividual ,
+              :DecisionModel .
 
-slr:DecisionMinerPlugin a slr:ProMFramework,
-        slr:WekaLibrary .
 
-slr:Massimiliano.de.Leoni rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=OejM6_AAAAAJ> .
+###  https://purl.archive.org/slr/decisionmining.owl#DMQualityMetrics
+:DMQualityMetrics rdf:type owl:NamedIndividual ,
+                           :DMSolution .
 
-slr:ModelSuitability a slr:TypeOfModelProblem .
 
-slr:ProMPlugin a slr:ProMFramework .
+###  https://purl.archive.org/slr/decisionmining.owl#DPATS
+:DPATS rdf:type owl:NamedIndividual ,
+                :DMTool .
 
-slr:Scikit-learn a slr:DMTool .
 
-slr:bscheibel_dmma_Git_Embodiment a fabio:DigitalManifestation ;
-    rdfs:seeAlso <https://github.com/bscheibel/dmma> .
+###  https://purl.archive.org/slr/decisionmining.owl#De_Smedt_et_al.2019
+:De_Smedt_et_al.2019 rdf:type owl:NamedIndividual ,
+                              fabio:ResearchPaper ;
+                     frbr:realization :De_Smedt_et_al.2019_Expression ;
+                     prov:used :BPIC17Dataset ,
+                               :P-MInDPlugin ;
+                     :addressesProblem :MissingDecisions .
 
-slr:DecisionsTypeProblem rdfs:subClassOf slr:DMProblem .
 
-slr:Stefanie.Rinderle-Ma rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=SGgvbfMAAAAJ> .
+###  https://purl.archive.org/slr/decisionmining.owl#De_Smedt_et_al.2019_DOI
+:De_Smedt_et_al.2019_DOI rdf:type owl:NamedIndividual ,
+                                  datacite:PrimaryResourceIdentifier ;
+                         datacite:usesIdentifierScheme datacite:doi ;
+                         rdf:value "10.1016/j.knosys.2019.104866" .
 
-slr:WekaLibrary rdfs:subClassOf slr:DMTool .
 
-slr:Wil.M.P.van.der.Aalst rdfs:seeAlso <https://scholar.google.co.uk/citations?user=aSZYyxIAAAAJ&hl=en&oi=sra> .
+###  https://purl.archive.org/slr/decisionmining.owl#De_Smedt_et_al.2019_Expression
+:De_Smedt_et_al.2019_Expression rdf:type owl:NamedIndividual ,
+                                         fabio:JournalArticle ;
+                                datacite:hasIdentifier :De_Smedt_et_al.2019_DOI ;
+                                fabio:hasPublicationYear "2019"^^xsd:year .
 
-fabio:JournalArticle rdfs:subClassOf fabio:Article .
 
-slr:ModelConstructs a slr:TypeOfModelProblem .
+###  https://purl.archive.org/slr/decisionmining.owl#DeciClareMiner
+:DeciClareMiner rdf:type owl:NamedIndividual ,
+                         :DMTool .
 
-slr:Scheibel_et_al.Oct_2022 a fabio:ResearchPaper ;
-    dct:creator slr:Beate.Scheibel,
-        slr:Stefanie.Rinderle-Ma ;
-    frbr:realization slr:Scheibel_et_al.Oct_2022_Expression ;
-    slr:addressesProblem slr:DynamicDecisionRules ;
-    prov:used slr:BPIC12Dataset,
-        slr:BPIC20Dataset,
-        slr:LoanApplocationDataset,
-        slr:ManufacturingDataset_dmma,
-        slr:Scikit-learn,
-        slr:SepsisDataset,
-        slr:TourismDataset_dmma .
 
-slr:ProMFramework rdfs:subClassOf slr:DMTool .
+###  https://purl.archive.org/slr/decisionmining.owl#DecisionMinerPlugin
+:DecisionMinerPlugin rdf:type owl:NamedIndividual ,
+                              :ProMFramework ,
+                              :WekaLibrary .
 
-slr:MissingContextData a slr:IncompleteLogs .
 
-slr:DMTool rdfs:subClassOf fabio:ComputerProgram .
+###  https://purl.archive.org/slr/decisionmining.owl#DecisionModelOverfitting
+:DecisionModelOverfitting rdf:type owl:NamedIndividual ,
+                                   :DecisionModelError .
 
-fabio:Dataset rdfs:subClassOf fabio:Work .
 
-fabio:DigitalManifestation rdfs:subClassOf fabio:Manifestation .
+###  https://purl.archive.org/slr/decisionmining.owl#DecisionModelUnderfitting
+:DecisionModelUnderfitting rdf:type owl:NamedIndividual ,
+                                    :DecisionModelError .
 
-fabio:ConferencePaper rdfs:subClassOf fabio:ProceedingsPaper .
 
-fabio:ResearchPaper rdfs:subClassOf fabio:ScholarlyWork .
+###  https://purl.archive.org/slr/decisionmining.owl#DecisionPointAnalysisPlugin
+:DecisionPointAnalysisPlugin rdf:type owl:NamedIndividual ,
+                                      :ProMFramework .
 
-datacite:PrimaryResourceIdentifier rdfs:subClassOf datacite:ResourceIdentifier .
 
+###  https://purl.archive.org/slr/decisionmining.owl#DecisionRuleHistory
+:DecisionRuleHistory rdf:type owl:NamedIndividual ,
+                              :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#DeviatingLogs
+:DeviatingLogs rdf:type owl:NamedIndividual ,
+                        :EventLogsProblem .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Diego.Savoia
+:Diego.Savoia rdf:type owl:NamedIndividual ;
+              rdfs:comment "Politecnico di Milano - DEIB, Milan, Italy" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Duc.Loc.Nguyen.Vo
+:Duc.Loc.Nguyen.Vo rdf:type owl:NamedIndividual ;
+                   rdfs:seeAlso <https://dl.acm.org/profile/99660119534> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Dunkl_et_al.2015
+:Dunkl_et_al.2015 rdf:type owl:NamedIndividual ,
+                           fabio:ResearchPaper ;
+                  dct:creator :Karl.Anton.Fröschl ,
+                              :Reinhold.Dunkl ,
+                              :Stefanie.Rinderle-Ma ,
+                              :Wilfried.Grossmann ;
+                  frbr:realization :Dunkl_et_al.2015_Expression ;
+                  prov:used :DPATS ;
+                  :addressesProblem :MissingContextData .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Dunkl_et_al.2015_DOI
+:Dunkl_et_al.2015_DOI rdf:type owl:NamedIndividual ,
+                               datacite:PrimaryResourceIdentifier ;
+                      datacite:usesIdentifierScheme datacite:doi ;
+                      rdf:value "10.1007/978-3-319-19270-3_5" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Dunkl_et_al.2015_Expression
+:Dunkl_et_al.2015_Expression rdf:type owl:NamedIndividual ,
+                                      fabio:ConferencePaper ;
+                             datacite:hasIdentifier :Dunkl_et_al.2015_DOI ;
+                             fabio:hasPublicationYear "2015"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Dwi.Sunaryono
+:Dwi.Sunaryono rdf:type owl:NamedIndividual ;
+               rdfs:seeAlso <https://scholar.google.com/citations?user=t0sbqxQAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#DynamicDecisionRules
+:DynamicDecisionRules rdf:type owl:NamedIndividual ,
+                               :DecisionsTypeProblem .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#DynamicDecisions
+:DynamicDecisions rdf:type owl:NamedIndividual ,
+                           :TypeOfDecision .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Education
+:Education rdf:type owl:NamedIndividual ,
+                    :Service .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#EventAttributeClassification
+:EventAttributeClassification rdf:type owl:NamedIndividual ,
+                                       :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#FeatureEngineering
+:FeatureEngineering rdf:type owl:NamedIndividual ,
+                             :InjectKnowledge .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Felix.Mannhardt
+:Felix.Mannhardt rdf:type owl:NamedIndividual ;
+                 rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=s1HfgbcAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Fernanda.Araujo.Baião
+:Fernanda.Araujo.Baião rdf:type owl:NamedIndividual ;
+                       rdfs:seeAlso <https://scholar.google.co.uk/citations?user=BU2qW_gAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Finance
+:Finance rdf:type owl:NamedIndividual ,
+                  :Financial .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#FinePayment
+:FinePayment rdf:type owl:NamedIndividual ,
+                      :Financial .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#FixDMModel
+:FixDMModel rdf:type owl:NamedIndividual ,
+                     :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Flávia.Maria.Santoro
+:Flávia.Maria.Santoro rdf:type owl:NamedIndividual ;
+                      rdfs:seeAlso <https://scholar.google.co.uk/citations?user=HhVcLMUAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#GoogleMerchandiseStoredataset
+:GoogleMerchandiseStoredataset rdf:type owl:NamedIndividual ,
+                                        fabio:Dataset ;
+                               dct:subject :Retail ;
+                               datacite:hasDescription :Nguyen_Chan_et_al.2022 ;
+                               frbr:embodiment :GoogleMerchandiseStoredataset_Link_Embodiment .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#GoogleMerchandiseStoredataset_Link_Embodiment
+:GoogleMerchandiseStoredataset_Link_Embodiment rdf:type owl:NamedIndividual ,
+                                                        fabio:DigitalManifestation ;
+                                               rdfs:seeAlso <https://www.kaggle.com/datasets/bigquery/google-analytics-sample> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Gyunam.Park
+:Gyunam.Park rdf:type owl:NamedIndividual ;
+             rdfs:seeAlso <https://scholar.google.com/citations?user=pizUQ6gAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Hajo.A.Reijers
+:Hajo.A.Reijers rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=hsfC0rEAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Hari.Ginardi
+:Hari.Ginardi rdf:type owl:NamedIndividual ;
+              rdfs:seeAlso <https://scholar.google.com/citations?user=pED0WkoAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Hasic_et_al.2022
+:Hasic_et_al.2022 rdf:type owl:NamedIndividual ,
+                           fabio:ResearchPaper ;
+                  frbr:realization :Hasic_et_al.2022_Expression ;
+                  prov:used :BPIC17Dataset ,
+                            :SOAP-MInD .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Hasic_et_al.2022_DOI
+:Hasic_et_al.2022_DOI rdf:type owl:NamedIndividual ,
+                               datacite:PrimaryResourceIdentifier ;
+                      datacite:usesIdentifierScheme datacite:doi ;
+                      rdf:value "10.1109/TSC.2020.2965516" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Hasic_et_al.2022_Expression
+:Hasic_et_al.2022_Expression rdf:type owl:NamedIndividual ,
+                                      fabio:JournalArticle ;
+                             datacite:hasIdentifier :Hasic_et_al.2022_DOI ;
+                             fabio:hasPublicationYear "2022"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#HealthRecord_EHR_SystemDataset
+:HealthRecord_EHR_SystemDataset rdf:type owl:NamedIndividual ,
+                                         fabio:Dataset ;
+                                dct:subject :Healthcare ;
+                                datacite:hasDescription :Mertens_et_al.2022 ;
+                                frbr:embodiment :stevmert_discoveryMethod_Git_Embodiment .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Healthcare
+:Healthcare rdf:type owl:NamedIndividual ,
+                     :Service .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#IdentifyInstance-spanningDependencies
+:IdentifyInstance-spanningDependencies rdf:type owl:NamedIndividual ,
+                                                :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#IdentifyVariable-activityDependencies
+:IdentifyVariable-activityDependencies rdf:type owl:NamedIndividual ,
+                                                :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Imam.Mukhlash
+:Imam.Mukhlash rdf:type owl:NamedIndividual ;
+               rdfs:seeAlso <https://scholar.google.com/citations?user=2MBZF7EAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#InjectData
+:InjectData rdf:type owl:NamedIndividual ,
+                     :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Instance-spanningConstraint
+:Instance-spanningConstraint rdf:type owl:NamedIndividual ,
+                                      :GlobalDecisions .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Instance-spanningDecisions
+:Instance-spanningDecisions rdf:type owl:NamedIndividual ,
+                                     :TypeOfDecision .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Insurance
+:Insurance rdf:type owl:NamedIndividual ,
+                    :Financial .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#J.G.Enríquez
+:J.G.Enríquez rdf:type owl:NamedIndividual ;
+              rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=uMfdKyEAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Jacques.Pinaton
+:Jacques.Pinaton rdf:type owl:NamedIndividual ;
+                 rdfs:seeAlso <https://ieeexplore.ieee.org/author/37547406500> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Jareevongpiboon_et_al.2011
+:Jareevongpiboon_et_al.2011 rdf:type owl:NamedIndividual ,
+                                     fabio:ResearchPaper ;
+                            dct:creator :P.Janecek ,
+                                        :W.Jareevongpiboon ;
+                            frbr:realization :Jareevongpiboon_et_al.2011_Expression ;
+                            prov:used :DecisionMinerPlugin ;
+                            :addressesProblem :MissingContextData .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Jareevongpiboon_et_al.2011_Embodiment0
+:Jareevongpiboon_et_al.2011_Embodiment0 rdf:type owl:NamedIndividual ,
+                                                 fabio:DigitalManifestation ;
+                                        rdfs:seeAlso <https://aisel.aisnet.org/iceb2011/5/> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Jareevongpiboon_et_al.2011_Expression
+:Jareevongpiboon_et_al.2011_Expression rdf:type owl:NamedIndividual ,
+                                                fabio:ConferencePaper ;
+                                       frbr:embodiment :Jareevongpiboon_et_al.2011_Embodiment0 ;
+                                       fabio:hasPublicationYear "2011"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Jonathan.Schneider
+:Jonathan.Schneider rdf:type owl:NamedIndividual ;
+                    rdfs:comment "RWTH Aachen University, Aachen, Germany" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Jouck_et_al.2019
+:Jouck_et_al.2019 rdf:type owl:NamedIndividual ,
+                           fabio:ResearchPaper ;
+                  dct:creator :Benoît.Depaire ,
+                              :Massimiliano.de.Leoni ,
+                              :Toon.Jouck ;
+                  frbr:realization :Jouck_et_al.2019_Expression ;
+                  prov:used :PTandLogGeneratorPackage ;
+                  :addressesProblem :CompareDMApproaches .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Jouck_et_al.2019_DOI
+:Jouck_et_al.2019_DOI rdf:type owl:NamedIndividual ,
+                               datacite:PrimaryResourceIdentifier ;
+                      datacite:usesIdentifierScheme datacite:doi ;
+                      rdf:value "10.1007/978-3-030-11641-5_38" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Jouck_et_al.2019_Expression
+:Jouck_et_al.2019_Expression rdf:type owl:NamedIndividual ,
+                                      fabio:ConferencePaper ;
+                             datacite:hasIdentifier :Jouck_et_al.2019_DOI ;
+                             fabio:hasPublicationYear "2019"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#KNIME
+:KNIME rdf:type owl:NamedIndividual ,
+                :DMTool .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Karl.Anton.Fröschl
+:Karl.Anton.Fröschl rdf:type owl:NamedIndividual ;
+                    rdfs:comment "Faculty of Computer Science, University of Vienna, Vienna, Austria" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Karolin.Winter
+:Karolin.Winter rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.com/citations?user=EWS4nf0AAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Khemiri_et_al.2018
+:Khemiri_et_al.2018 rdf:type owl:NamedIndividual ,
+                             fabio:ResearchPaper ;
+                    dct:creator :Abdelhak.Khemiri ,
+                                :Claudia.Frydman ,
+                                :Jacques.Pinaton ,
+                                :Maamar.El.Amine.Hamri ;
+                    frbr:realization :Khemiri_et_al.2018_Expression ;
+                    prov:used :KNIME .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Khemiri_et_al.2018_DOI
+:Khemiri_et_al.2018_DOI rdf:type owl:NamedIndividual ,
+                                 datacite:PrimaryResourceIdentifier ;
+                        datacite:usesIdentifierScheme datacite:doi ;
+                        rdf:value "10.1109/WSC.2018.8632509" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Khemiri_et_al.2018_Expression
+:Khemiri_et_al.2018_Expression rdf:type owl:NamedIndividual ,
+                                        fabio:ConferencePaper ;
+                               datacite:hasIdentifier :Khemiri_et_al.2018_DOI ;
+                               fabio:hasPublicationYear "2018"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Laura.Genga
+:Laura.Genga rdf:type owl:NamedIndividual ;
+             rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=bgUFsOUAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Leoni_et_al.2013
+:Leoni_et_al.2013 rdf:type owl:NamedIndividual ,
+                           fabio:ResearchPaper ;
+                  dct:creator :Massimiliano.de.Leoni ,
+                              :Wil.M.P.van.der.Aalst ;
+                  frbr:realization :Leoni_et_al.2013_Expression ;
+                  prov:used :BPIC12Dataset ,
+                            :ProMPlugin ;
+                  :addressesProblem :DeviatingLogs .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Leoni_et_al.2013_DOI
+:Leoni_et_al.2013_DOI rdf:type owl:NamedIndividual ,
+                               datacite:PrimaryResourceIdentifier ;
+                      datacite:usesIdentifierScheme datacite:doi ;
+                      rdf:value "10.1145/2480362.2480633" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Leoni_et_al.2013_Expression
+:Leoni_et_al.2013_Expression rdf:type owl:NamedIndividual ,
+                                      fabio:ConferencePaper ;
+                             datacite:hasIdentifier :Leoni_et_al.2013_DOI ;
+                             fabio:hasPublicationYear "2013"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#LoanApplocationDataset
+:LoanApplocationDataset rdf:type owl:NamedIndividual ,
+                                 fabio:Dataset ;
+                        dct:subject :Finance ;
+                        datacite:hasDescription :Scheibel_et_al.Oct_2022 ;
+                        frbr:embodiment :bscheibel_dmma_Git_Embodiment .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#LowDMAccuracy
+:LowDMAccuracy rdf:type owl:NamedIndividual ,
+                        :ModelEvaluationMetrics .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#LowDMF1Score
+:LowDMF1Score rdf:type owl:NamedIndividual ,
+                       :ModelEvaluationMetrics .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#LowDMPrecision
+:LowDMPrecision rdf:type owl:NamedIndividual ,
+                         :ModelEvaluationMetrics .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#LowDMRecall
+:LowDMRecall rdf:type owl:NamedIndividual ,
+                      :ModelEvaluationMetrics ;
+             :hasPossibleCause :DeviatingLogs ,
+                               :DynamicDecisionRules ,
+                               :Instance-spanningConstraint ,
+                               :MissingContextData ,
+                               :MissingDecisions ,
+                               :ModelConstructs ,
+                               :ModelSuitability ,
+                               :MultipleTypesOfDecisions ,
+                               :OverlappingDecisionRules ,
+                               :TemporalDecisions .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#LowDMSpecificity
+:LowDMSpecificity rdf:type owl:NamedIndividual ,
+                           :ModelEvaluationMetrics .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Lukassen_et_al.2023
+:Lukassen_et_al.2023 rdf:type owl:NamedIndividual ,
+                              fabio:ResearchPaper ;
+                     dct:creator :Britt.Lukassen ,
+                                 :Laura.Genga ,
+                                 :Yingqian.Zhang ;
+                     frbr:realization :Lukassen_et_al.2023_Expression ;
+                     :addressesProblem :MissingContextData .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Lukassen_et_al.2023_DOI
+:Lukassen_et_al.2023_DOI rdf:type owl:NamedIndividual ,
+                                  datacite:PrimaryResourceIdentifier ;
+                         datacite:usesIdentifierScheme datacite:doi ;
+                         rdf:value "10.1007/978-3-031-44505-7_31" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Lukassen_et_al.2023_Expression
+:Lukassen_et_al.2023_Expression rdf:type owl:NamedIndividual ,
+                                         fabio:ConferencePaper ;
+                                datacite:hasIdentifier :Lukassen_et_al.2023_DOI ;
+                                fabio:hasPublicationYear "2023"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#MIMIC-IIIDataset
+:MIMIC-IIIDataset rdf:type owl:NamedIndividual ,
+                           fabio:Dataset ;
+                  dct:subject :Healthcare ;
+                  datacite:hasDescription :Banham_et_al.2022 ;
+                  frbr:embodiment :adamBanham_icpm2021_Git_Embodiment .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Maamar.El.Amine.Hamri
+:Maamar.El.Amine.Hamri rdf:type owl:NamedIndividual ;
+                       rdfs:seeAlso <https://scholar.google.com/citations?user=JONdrsoAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mannhardt_et_al.2016
+:Mannhardt_et_al.2016 rdf:type owl:NamedIndividual ,
+                               fabio:ResearchPaper ;
+                      dct:creator :Felix.Mannhardt ,
+                                  :Hajo.A.Reijers ,
+                                  :Massimiliano.de.Leoni ,
+                                  :Wil.M.P.van.der.Aalst ;
+                      frbr:realization :Mannhardt_et_al.2016_Expression ;
+                      prov:used :SepsisDataset ,
+                                <https://purl.archive.org/slr/decisionmining.owl#4TU_ResearchDataset> ;
+                      :addressesProblem :OverlappingDecisionRules .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mannhardt_et_al.2016_DOI
+:Mannhardt_et_al.2016_DOI rdf:type owl:NamedIndividual ,
+                                   datacite:PrimaryResourceIdentifier ;
+                          datacite:usesIdentifierScheme datacite:doi ;
+                          rdf:value "10.1007/978-3-319-39696-5_23" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mannhardt_et_al.2016_Expression
+:Mannhardt_et_al.2016_Expression rdf:type owl:NamedIndividual ,
+                                          fabio:ConferencePaper ;
+                                 datacite:hasIdentifier :Mannhardt_et_al.2016_DOI ;
+                                 fabio:hasPublicationYear "2016"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#ManufacturingDataset_dmma
+:ManufacturingDataset_dmma rdf:type owl:NamedIndividual ,
+                                    fabio:Dataset ;
+                           dct:subject :manufacturing ;
+                           datacite:hasDescription :Scheibel_et_al.Oct_2022 ;
+                           frbr:embodiment :bscheibel_dmma_Git_Embodiment .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#ManufacturingDataset_edt-ts
+:ManufacturingDataset_edt-ts rdf:type owl:NamedIndividual ,
+                                      fabio:Dataset ;
+                             dct:subject :manufacturing ;
+                             datacite:hasDescription :Scheibel_et_al.Jun_2022 ;
+                             frbr:embodiment :bscheibel_edt-ts_Git_Embodiment .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mara.Tews
+:Mara.Tews rdf:type owl:NamedIndividual ;
+           rdfs:comment "RWTH Aachen University, Aachen, Germany" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Martinez-Rojas_et_al.2022
+:Martinez-Rojas_et_al.2022 rdf:type owl:NamedIndividual ,
+                                    fabio:ResearchPaper ;
+                           dct:creator :A.Jiménez-Ramírez ,
+                                       :A.Martínez-Rojas ,
+                                       :Hajo.A.Reijers ,
+                                       :J.G.Enríquez ;
+                           frbr:realization :Martinez-Rojas_et_al.2022_Expression ;
+                           prov:used :UISLogDataset ;
+                           :addressesProblem :MissingContextData .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Martinez-Rojas_et_al.2022_DOI
+:Martinez-Rojas_et_al.2022_DOI rdf:type owl:NamedIndividual ,
+                                        datacite:PrimaryResourceIdentifier ;
+                               datacite:usesIdentifierScheme datacite:doi ;
+                               rdf:value "10.1007/978-3-031-16103-2_8" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Martinez-Rojas_et_al.2022_Expression
+:Martinez-Rojas_et_al.2022_Expression rdf:type owl:NamedIndividual ,
+                                               fabio:ConferencePaper ;
+                                      datacite:hasIdentifier :Martinez-Rojas_et_al.2022_DOI ;
+                                      fabio:hasPublicationYear "2022"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Massimiliano.de.Leoni
+:Massimiliano.de.Leoni rdf:type owl:NamedIndividual ;
+                       rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=OejM6_AAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Matteo.Matteucci
+:Matteo.Matteucci rdf:type owl:NamedIndividual ;
+                  rdfs:seeAlso <https://scholar.google.co.uk/citations?user=PdbEg5YAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mertens_et_al.2018
+:Mertens_et_al.2018 rdf:type owl:NamedIndividual ,
+                             fabio:ResearchPaper ;
+                    frbr:realization :Mertens_et_al.2018_Expression ;
+                    prov:used :DeciClareMiner ;
+                    :addressesProblem :ModelSuitability .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mertens_et_al.2018_DOI
+:Mertens_et_al.2018_DOI rdf:type owl:NamedIndividual ,
+                                 datacite:PrimaryResourceIdentifier ;
+                        datacite:usesIdentifierScheme datacite:doi ;
+                        rdf:value "10.1080/20476965.2017.1405876" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mertens_et_al.2018_Expression
+:Mertens_et_al.2018_Expression rdf:type owl:NamedIndividual ,
+                                        fabio:JournalArticle ;
+                               datacite:hasIdentifier :Mertens_et_al.2018_DOI ;
+                               fabio:hasPublicationYear "2018"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mertens_et_al.2022
+:Mertens_et_al.2022 rdf:type owl:NamedIndividual ,
+                             fabio:ResearchPaper ;
+                    frbr:realization :Mertens_et_al.2022_Expression ;
+                    prov:used :DeciClareMiner ,
+                              :HealthRecord_EHR_SystemDataset ;
+                    :addressesProblem :ModelSuitability .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mertens_et_al.2022_DOI
+:Mertens_et_al.2022_DOI rdf:type owl:NamedIndividual ,
+                                 datacite:PrimaryResourceIdentifier ;
+                        datacite:usesIdentifierScheme datacite:doi ;
+                        rdf:value "10.1007/s10796-020-10078-5" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Mertens_et_al.2022_Expression
+:Mertens_et_al.2022_Expression rdf:type owl:NamedIndividual ,
+                                        fabio:JournalArticle ;
+                               datacite:hasIdentifier :Mertens_et_al.2022_DOI ;
+                               fabio:hasPublicationYear "2022"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#MissingContextData
+:MissingContextData rdf:type owl:NamedIndividual ,
+                             :IncompleteLogs .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#MissingDecisions
+:MissingDecisions rdf:type owl:NamedIndividual ,
+                           :IncompleteLogs .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#ModelConstructs
+:ModelConstructs rdf:type owl:NamedIndividual ,
+                          :TypeOfModelProblem .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#ModelSuitability
+:ModelSuitability rdf:type owl:NamedIndividual ,
+                           :TypeOfModelProblem .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Moe.T.Wynn
+:Moe.T.Wynn rdf:type owl:NamedIndividual ;
+            rdfs:seeAlso <https://scholar.google.co.uk/citations?user=HV1NIvcAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#MultiPerspectiveExplorerPackage
+:MultiPerspectiveExplorerPackage rdf:type owl:NamedIndividual ,
+                                          :ProMFramework ,
+                                          :WekaLibrary .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#MultiProcessDecisions
+:MultiProcessDecisions rdf:type owl:NamedIndividual ,
+                                :TypeOfDecision .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#MultipleTypesOfDecisions
+:MultipleTypesOfDecisions rdf:type owl:NamedIndividual ,
+                                   :DecisionsTypeProblem .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#My.Hang.Vu.Thi
+:My.Hang.Vu.Thi rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.com/citations?hl=en&user=g1uPhCAAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Nam.Nguyen.Chan
+:Nam.Nguyen.Chan rdf:type owl:NamedIndividual ;
+                 rdfs:seeAlso <https://scholar.google.com/citations?user=dOGx55MAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Nguyen.Anh.Khoa.Dam
+:Nguyen.Anh.Khoa.Dam rdf:type owl:NamedIndividual ;
+                     rdfs:seeAlso <https://dl.acm.org/profile/99660108171> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Nguyen_Chan_et_al.2022
+:Nguyen_Chan_et_al.2022 rdf:type owl:NamedIndividual ,
+                                 fabio:ResearchPaper ;
+                        dct:creator :Cuong.Pham-Nguyen ,
+                                    :Duc.Loc.Nguyen.Vo ,
+                                    :My.Hang.Vu.Thi ,
+                                    :Nam.Nguyen.Chan ,
+                                    :Nguyen.Anh.Khoa.Dam ,
+                                    :Thang.Le.Dinh ,
+                                    :Thanh.Thoa.Pham.Thi ;
+                        frbr:realization :Nguyen_Chan_et_al.2022_Expression ;
+                        prov:used :GoogleMerchandiseStoredataset ,
+                                  :Scikit-learn .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Nguyen_Chan_et_al.2022_DOI
+:Nguyen_Chan_et_al.2022_DOI rdf:type owl:NamedIndividual ,
+                                     datacite:PrimaryResourceIdentifier ;
+                            datacite:usesIdentifierScheme datacite:doi ;
+                            rdf:value "10.1145/3508072.3508075" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Nguyen_Chan_et_al.2022_Expression
+:Nguyen_Chan_et_al.2022_Expression rdf:type owl:NamedIndividual ,
+                                            fabio:ConferencePaper ;
+                                   datacite:hasIdentifier :Nguyen_Chan_et_al.2022_DOI ;
+                                   fabio:hasPublicationYear "2022"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#OnlineDM
+:OnlineDM rdf:type owl:NamedIndividual ,
+                   :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#OrderManagement
+:OrderManagement rdf:type owl:NamedIndividual ,
+                          :Sales .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#OverlappingDecisionRules
+:OverlappingDecisionRules rdf:type owl:NamedIndividual ,
+                                   :DecisionsTypeProblem .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#P-MInDPlugin
+:P-MInDPlugin rdf:type owl:NamedIndividual ,
+                       :ProMFramework ,
+                       :WekaLibrary .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#P-MinDPackage_Link
+:P-MinDPackage_Link rdf:type owl:NamedIndividual ,
+                             fabio:DigitalManifestation ;
+                    rdfs:seeAlso <https://svn.win.tue.nl/repos/prom/Packages/PMinD/> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#P.Janecek
+:P.Janecek rdf:type owl:NamedIndividual ;
+           rdfs:seeAlso <https://scholar.google.com/citations?user=a-9_oekAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#PTandLogGeneratorPackage
+:PTandLogGeneratorPackage rdf:type owl:NamedIndividual ,
+                                   :ProMFramework .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Park_et_al.2023
+:Park_et_al.2023 rdf:type owl:NamedIndividual ,
+                          fabio:ResearchPaper ;
+                 dct:creator :Aaron.Küsters ,
+                             :Cameron.Pitsch ,
+                             :Gyunam.Park ,
+                             :Jonathan.Schneider ,
+                             :Mara.Tews ,
+                             :Wil.M.P.van.der.Aalst ;
+                 frbr:realization :Park_et_al.2023_Expression ;
+                 prov:used :BPIC12Dataset ,
+                           :BPIC19Dataset ,
+                           :WebApplication .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Park_et_al.2023_DOI
+:Park_et_al.2023_DOI rdf:type owl:NamedIndividual ,
+                              datacite:PrimaryResourceIdentifier ;
+                     datacite:usesIdentifierScheme datacite:doi ;
+                     rdf:value "10.1007/978-3-031-26507-5_6" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Park_et_al.2023_Expression
+:Park_et_al.2023_Expression rdf:type owl:NamedIndividual ,
+                                     fabio:ConferencePaper ;
+                            datacite:hasIdentifier :Park_et_al.2023_DOI ;
+                            fabio:hasPublicationYear "2023"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#PetriNets
+:PetriNets rdf:type owl:NamedIndividual ,
+                    :WorkflowModel .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#PetriNetsWithData
+:PetriNetsWithData rdf:type owl:NamedIndividual ,
+                            :DecisionModel ,
+                            :WorkflowModel .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Pietro.Portolani
+:Pietro.Portolani rdf:type owl:NamedIndividual ;
+                  rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=Yv4Ts8cAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Pmkoalas
+:Pmkoalas rdf:type owl:NamedIndividual ,
+                   :DMTool .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Portolani_et_al.2023
+:Portolani_et_al.2023 rdf:type owl:NamedIndividual ,
+                               fabio:ResearchPaper ;
+                      dct:creator :Andrea.Ballarino ,
+                                  :Diego.Savoia ,
+                                  :Matteo.Matteucci ,
+                                  :Pietro.Portolani ;
+                      frbr:realization :Portolani_et_al.2023_Expression ;
+                      prov:used <https://purl.archive.org/slr/decisionmining.owl#4TU_ResearchDataset> ;
+                      :addressesProblem :ModelConstructs .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Portolani_et_al.2023_DOI
+:Portolani_et_al.2023_DOI rdf:type owl:NamedIndividual ,
+                                   datacite:PrimaryResourceIdentifier ;
+                          datacite:usesIdentifierScheme datacite:doi ;
+                          rdf:value "10.1007/978-3-031-34241-7_6" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Portolani_et_al.2023_Expression
+:Portolani_et_al.2023_Expression rdf:type owl:NamedIndividual ,
+                                          fabio:ConferencePaper ;
+                                 datacite:hasIdentifier :Portolani_et_al.2023_DOI ;
+                                 fabio:hasPublicationYear "2023"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#PredictiveAbility
+:PredictiveAbility rdf:type owl:NamedIndividual ,
+                            :DMProblem .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#ProMPlugin
+:ProMPlugin rdf:type owl:NamedIndividual ,
+                     :ProMFramework .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#ProcessModelOverfitting
+:ProcessModelOverfitting rdf:type owl:NamedIndividual ,
+                                  :ProcessModelBehaviorAndErrors .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#ProcessModelUnderfitting
+:ProcessModelUnderfitting rdf:type owl:NamedIndividual ,
+                                   :ProcessModelBehaviorAndErrors .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Processmining.org
+:Processmining.org rdf:type owl:NamedIndividual ,
+                            fabio:DigitalManifestation ;
+                   rdfs:seeAlso <https://www.processmining.org/> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Promtools.org
+:Promtools.org rdf:type owl:NamedIndividual ,
+                        fabio:DigitalManifestation ;
+               rdfs:seeAlso <https://promtools.org/> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Putu.Linda.Indita.Sari
+:Putu.Linda.Indita.Sari rdf:type owl:NamedIndividual ;
+                        rdfs:seeAlso <https://ieeexplore.ieee.org/author/37087457789> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Raphael.Crerie
+:Raphael.Crerie rdf:type owl:NamedIndividual ;
+                rdfs:comment "Research and Practice Group in Information Technology, Department of Applied Informatics, Federal University of the State of Rio de Janeiro (UNIRIO), Brazil" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Re-useRules
+:Re-useRules rdf:type owl:NamedIndividual ,
+                      :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Reinhold.Dunkl
+:Reinhold.Dunkl rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://pubmed.ncbi.nlm.nih.gov/?term=Dunkl+R&cauthor_id=30544735> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Retail
+:Retail rdf:type owl:NamedIndividual ,
+                 :Sales .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#RetailWarehouse
+:RetailWarehouse rdf:type owl:NamedIndividual ,
+                          :Sales .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Riyanarto.Sarno
+:Riyanarto.Sarno rdf:type owl:NamedIndividual ;
+                 rdfs:seeAlso <https://scholar.google.com/citations?user=QOMOtp0AAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#RoadTrafficFineManagement
+:RoadTrafficFineManagement rdf:type owl:NamedIndividual ,
+                                    :Service .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Robert.Andrews
+:Robert.Andrews rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=ffknJrMAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Rozinat_et_al_BPM.2006
+:Rozinat_et_al_BPM.2006 rdf:type owl:NamedIndividual ,
+                                 fabio:ResearchPaper ;
+                        dct:creator :A.Rozinat ,
+                                    :Wil.M.P.van.der.Aalst ;
+                        frbr:realization :Rozinat_et_al_BPM.2006_Expression ;
+                        prov:used :DecisionMinerPlugin ;
+                        :addressesProblem :ModelConstructs .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Rozinat_et_al_BPM.2006_DOI
+:Rozinat_et_al_BPM.2006_DOI rdf:type owl:NamedIndividual ,
+                                     datacite:PrimaryResourceIdentifier ;
+                            datacite:usesIdentifierScheme datacite:doi ;
+                            rdf:value "10.1007/11841760_33" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Rozinat_et_al_BPM.2006_Expression
+:Rozinat_et_al_BPM.2006_Expression rdf:type owl:NamedIndividual ,
+                                            fabio:ConferencePaper ;
+                                   datacite:hasIdentifier :Rozinat_et_al_BPM.2006_DOI ;
+                                   fabio:hasPublicationYear "2006"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Rozinat_et_al_TUe.2006
+:Rozinat_et_al_TUe.2006 rdf:type owl:NamedIndividual ,
+                                 fabio:TechnicalReport ;
+                        dct:creator :A.Rozinat ,
+                                    :Wil.M.P.van.der.Aalst ;
+                        frbr:realization :Rozinat_et_al_TUe.2006_Expression ;
+                        prov:used :DecisionMinerPlugin ;
+                        :addressesProblem :ModelConstructs .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Rozinat_et_al_TUe.2006_Embodiment0
+:Rozinat_et_al_TUe.2006_Embodiment0 rdf:type owl:NamedIndividual ,
+                                             fabio:DigitalManifestation ;
+                                    rdfs:seeAlso <https://research.tue.nl/files/1750830/609514.pdf> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Rozinat_et_al_TUe.2006_Expression
+:Rozinat_et_al_TUe.2006_Expression rdf:type owl:NamedIndividual ,
+                                            fabio:ReportDocument ;
+                                   frbr:embodiment :Rozinat_et_al_TUe.2006_Embodiment0 ;
+                                   fabio:hasPublicationYear "2006"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#SOAP-MInD
+:SOAP-MInD rdf:type owl:NamedIndividual ,
+                    :ProMFramework .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Sander.J.J.Leemans
+:Sander.J.J.Leemans rdf:type owl:NamedIndividual ;
+                    rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=5_gCz9oAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Sarno_et_al.2013
+:Sarno_et_al.2013 rdf:type owl:NamedIndividual ,
+                           fabio:ResearchPaper ;
+                  dct:creator :Dwi.Sunaryono ,
+                              :Hari.Ginardi ,
+                              :Imam.Mukhlash ,
+                              :Putu.Linda.Indita.Sari ,
+                              :Riyanarto.Sarno ;
+                  frbr:realization :Sarno_et_al.2013_Expression ;
+                  prov:used :ProMPlugin ;
+                  :addressesProblem :ModelConstructs .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Sarno_et_al.2013_DOI
+:Sarno_et_al.2013_DOI rdf:type owl:NamedIndividual ,
+                               datacite:PrimaryResourceIdentifier ;
+                      datacite:usesIdentifierScheme datacite:doi ;
+                      rdf:value "10.1109/IC3INA.2013.6819197" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Sarno_et_al.2013_Expression
+:Sarno_et_al.2013_Expression rdf:type owl:NamedIndividual ,
+                                      fabio:ConferencePaper ;
+                             datacite:hasIdentifier :Sarno_et_al.2013_DOI ;
+                             fabio:hasPublicationYear "2013"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Sarno_et_al.2014
+:Sarno_et_al.2014 rdf:type owl:NamedIndividual ,
+                           fabio:ResearchPaper ;
+                  dct:creator :Bilqis.Amaliah ,
+                              :Dwi.Sunaryono ,
+                              :Imam.Mukhlash ,
+                              :Putu.Linda.Indita.Sari ,
+                              :Riyanarto.Sarno ;
+                  frbr:realization :Sarno_et_al.2014_Expression ;
+                  prov:used :DecisionPointAnalysisPlugin ;
+                  :addressesProblem :ModelConstructs .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Sarno_et_al.2014_DOI
+:Sarno_et_al.2014_DOI rdf:type owl:NamedIndividual ,
+                               datacite:PrimaryResourceIdentifier ;
+                      datacite:usesIdentifierScheme datacite:doi ;
+                      rdf:value "10.1109/ICTS.2014.7010557" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Sarno_et_al.2014_Expression
+:Sarno_et_al.2014_Expression rdf:type owl:NamedIndividual ,
+                                      fabio:ConferencePaper ;
+                             datacite:hasIdentifier :Sarno_et_al.2014_DOI ;
+                             fabio:hasPublicationYear "2014"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Scheibel_et_al.Jun_2022
+:Scheibel_et_al.Jun_2022 rdf:type owl:NamedIndividual ,
+                                  fabio:ResearchPaper ;
+                         dct:creator :Beate.Scheibel ,
+                                     :Stefanie.Rinderle-Ma ;
+                         frbr:realization :Scheibel_et_al.Jun_2022_Expression ;
+                         prov:used :ManufacturingDataset_edt-ts ,
+                                   :Scikit-learn ,
+                                   :SupplyChainDataset_edt-ts ,
+                                   :Tsfresh ;
+                         :addressesProblem :MissingContextData .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Scheibel_et_al.Jun_2022_DOI
+:Scheibel_et_al.Jun_2022_DOI rdf:type owl:NamedIndividual ,
+                                      datacite:PrimaryResourceIdentifier ;
+                             datacite:usesIdentifierScheme datacite:doi ;
+                             rdf:value "10.1007/978-3-031-07472-1_1" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Scheibel_et_al.Jun_2022_Expression
+:Scheibel_et_al.Jun_2022_Expression rdf:type owl:NamedIndividual ,
+                                             fabio:ConferencePaper ;
+                                    datacite:hasIdentifier :Scheibel_et_al.Jun_2022_DOI ;
+                                    fabio:hasPublicationYear "2022"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Scheibel_et_al.Oct_2022
+:Scheibel_et_al.Oct_2022 rdf:type owl:NamedIndividual ,
+                                  fabio:ResearchPaper ;
+                         dct:creator :Beate.Scheibel ,
+                                     :Stefanie.Rinderle-Ma ;
+                         frbr:realization :Scheibel_et_al.Oct_2022_Expression ;
+                         prov:used :BPIC12Dataset ,
+                                   :BPIC20Dataset ,
+                                   :LoanApplocationDataset ,
+                                   :ManufacturingDataset_dmma ,
+                                   :Scikit-learn ,
+                                   :SepsisDataset ,
+                                   :TourismDataset_dmma ;
+                         :addressesProblem :DynamicDecisionRules .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Scheibel_et_al.Oct_2022_DOI
+:Scheibel_et_al.Oct_2022_DOI rdf:type owl:NamedIndividual ,
+                                      datacite:PrimaryResourceIdentifier ;
+                             datacite:usesIdentifierScheme datacite:doi ;
+                             rdf:value "10.1007/978-3-031-17995-2_19" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Scheibel_et_al.Oct_2022_Expression
+:Scheibel_et_al.Oct_2022_Expression rdf:type owl:NamedIndividual ,
+                                             fabio:ConferencePaper ;
+                                    datacite:hasIdentifier :Scheibel_et_al.Oct_2022_DOI ;
+                                    fabio:hasPublicationYear "2022"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Scikit-learn
+:Scikit-learn rdf:type owl:NamedIndividual ,
+                       :DMTool .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#SepsisDataset
+:SepsisDataset rdf:type owl:NamedIndividual ,
+                        fabio:Dataset ;
+               dct:subject :Healthcare ;
+               datacite:hasDescription :Mannhardt_et_al.2016 ,
+                                       :Scheibel_et_al.Oct_2022 ;
+               datacite:hasIdentifier :SepsisDataset_DOI .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#SepsisDataset_DOI
+:SepsisDataset_DOI rdf:type owl:NamedIndividual ,
+                            datacite:PrimaryResourceIdentifier ;
+                   datacite:usesIdentifierScheme datacite:doi ;
+                   rdf:value "10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Simulation
+:Simulation rdf:type owl:NamedIndividual ,
+                     :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#StaticDecision
+:StaticDecision rdf:type owl:NamedIndividual ,
+                         :TypeOfDecision .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Stefanie.Rinderle-Ma
+:Stefanie.Rinderle-Ma rdf:type owl:NamedIndividual ;
+                      rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=SGgvbfMAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#SupplyChain
+:SupplyChain rdf:type owl:NamedIndividual ,
+                      :Sales .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#SupplyChainDataset_edt-ts
+:SupplyChainDataset_edt-ts rdf:type owl:NamedIndividual ,
+                                    fabio:Dataset ;
+                           dct:subject :SupplyChain ;
+                           datacite:hasDescription :Scheibel_et_al.Jun_2022 ;
+                           frbr:embodiment :bscheibel_edt-ts_Git_Embodiment .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#TemporalDataTimeSeries
+:TemporalDataTimeSeries rdf:type owl:NamedIndividual ,
+                                 :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#TemporalDecisions
+:TemporalDecisions rdf:type owl:NamedIndividual ,
+                            :GlobalDecisions ,
+                            :TypeOfDecision .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Thang.Le.Dinh
+:Thang.Le.Dinh rdf:type owl:NamedIndividual ;
+               rdfs:seeAlso <https://scholar.google.com/citations?user=T34rl4UAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Thanh.Thoa.Pham.Thi
+:Thanh.Thoa.Pham.Thi rdf:type owl:NamedIndividual ;
+                     rdfs:seeAlso <https://scholar.google.com/citations?user=-YIU7LoAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Toon.Jouck
+:Toon.Jouck rdf:type owl:NamedIndividual ;
+            rdfs:comment "UHasselt - Hasselt University, Hasselt, Belgium" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Tourism
+:Tourism rdf:type owl:NamedIndividual ,
+                  :Service .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#TourismDataset_dmma
+:TourismDataset_dmma rdf:type owl:NamedIndividual ,
+                              fabio:Dataset ;
+                     dct:subject :Tourism ;
+                     datacite:hasDescription :Scheibel_et_al.Oct_2022 ;
+                     frbr:embodiment :bscheibel_dmma_Git_Embodiment .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Tsfresh
+:Tsfresh rdf:type owl:NamedIndividual ,
+                  :DMTool .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#UISLogDataset
+:UISLogDataset rdf:type owl:NamedIndividual ,
+                        fabio:Dataset ;
+               dct:subject :Administrative ;
+               datacite:hasDescription :Martinez-Rojas_et_al.2022 ;
+               datacite:hasIdentifier :UISLogDataset_DOI .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#UISLogDataset_DOI
+:UISLogDataset_DOI rdf:type owl:NamedIndividual ,
+                            datacite:PrimaryResourceIdentifier ;
+                   datacite:usesIdentifierScheme datacite:doi ;
+                   rdf:value "10.5281/zenodo.5734323" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#UseDeclarativeModels
+:UseDeclarativeModels rdf:type owl:NamedIndividual ,
+                               :DMSolution .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#W.Jareevongpiboon
+:W.Jareevongpiboon rdf:type owl:NamedIndividual ;
+                   rdfs:seeAlso <https://scholar.google.com/citations?user=l1ZzK0MAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#WebApplication
+:WebApplication rdf:type owl:NamedIndividual ,
+                         :DMTool .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#WekaLibraryIndividual
+:WekaLibraryIndividual rdf:type owl:NamedIndividual ,
+                                :WekaLibrary .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Wil.M.P.van.der.Aalst
+:Wil.M.P.van.der.Aalst rdf:type owl:NamedIndividual ;
+                       rdfs:seeAlso <https://scholar.google.co.uk/citations?user=aSZYyxIAAAAJ&hl=en&oi=sra> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Wilfried.Grossmann
+:Wilfried.Grossmann rdf:type owl:NamedIndividual ;
+                    rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=opeGt1EAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Winter_et_al.2017
+:Winter_et_al.2017 rdf:type owl:NamedIndividual ,
+                            fabio:ResearchPaper ;
+                   dct:creator :Karolin.Winter ,
+                               :Stefanie.Rinderle-Ma ;
+                   frbr:realization :Winter_et_al.2017_Expression ;
+                   prov:used :CRISPDataset ;
+                   :addressesProblem :Instance-spanningConstraint .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Winter_et_al.2017_DOI
+:Winter_et_al.2017_DOI rdf:type owl:NamedIndividual ,
+                                datacite:PrimaryResourceIdentifier ;
+                       datacite:usesIdentifierScheme datacite:doi ;
+                       rdf:value "10.1109/EDOC.2017.20" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Winter_et_al.2017_Expression
+:Winter_et_al.2017_Expression rdf:type owl:NamedIndividual ,
+                                       fabio:ConferencePaper ;
+                              datacite:hasIdentifier :Winter_et_al.2017_DOI ;
+                              fabio:hasPublicationYear "2017"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Winter_et_al.2020
+:Winter_et_al.2020 rdf:type owl:NamedIndividual ,
+                            fabio:ResearchPaper ;
+                   frbr:realization :Winter_et_al.2020_Expression .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Winter_et_al.2020_DOI
+:Winter_et_al.2020_DOI rdf:type owl:NamedIndividual ,
+                                datacite:PrimaryResourceIdentifier ;
+                       datacite:usesIdentifierScheme datacite:doi ;
+                       rdf:value "10.1016/j.is.2019.101484" .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Winter_et_al.2020_Expression
+:Winter_et_al.2020_Expression rdf:type owl:NamedIndividual ,
+                                       fabio:JournalArticle ;
+                              datacite:hasIdentifier :Winter_et_al.2020_DOI ;
+                              fabio:hasPublicationYear "2020"^^xsd:year .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#Yingqian.Zhang
+:Yingqian.Zhang rdf:type owl:NamedIndividual ;
+                rdfs:seeAlso <https://scholar.google.co.uk/citations?hl=en&user=7sTIWeYAAAAJ> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#aarkue_eXdpn_Git
+:aarkue_eXdpn_Git rdf:type owl:NamedIndividual ,
+                           fabio:DigitalManifestation ;
+                  rdfs:seeAlso <https://github.com/aarkue/eXdpn> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#adamBanham_icpm2021_Git_Embodiment
+:adamBanham_icpm2021_Git_Embodiment rdf:type owl:NamedIndividual ,
+                                             fabio:DigitalManifestation ;
+                                    rdfs:seeAlso <https://github.com/adamBanham/icpm2021> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#bscheibel_dmma_Git
+:bscheibel_dmma_Git rdf:type owl:NamedIndividual ,
+                             fabio:DigitalManifestation ;
+                    rdfs:seeAlso <https://github.com/bscheibel/dmma> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#bscheibel_dmma_Git_Embodiment
+:bscheibel_dmma_Git_Embodiment rdf:type owl:NamedIndividual ,
+                                        fabio:DigitalManifestation ;
+                               rdfs:seeAlso <https://github.com/bscheibel/dmma> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#bscheibel_edt-ts_Git
+:bscheibel_edt-ts_Git rdf:type owl:NamedIndividual ,
+                               fabio:DigitalManifestation ;
+                      rdfs:seeAlso <https://github.com/bscheibel/edt-ts/tree/main/data> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#bscheibel_edt-ts_Git_Embodiment
+:bscheibel_edt-ts_Git_Embodiment rdf:type owl:NamedIndividual ,
+                                          fabio:DigitalManifestation ;
+                                 rdfs:seeAlso <https://github.com/bscheibel/edt-ts/tree/main/data> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#cnam0203_CJX_Git
+:cnam0203_CJX_Git rdf:type owl:NamedIndividual ,
+                           fabio:DigitalManifestation ;
+                  rdfs:seeAlso <https://github.com/cnam0203/CJX> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#manufacturing
+:manufacturing rdf:type owl:NamedIndividual ,
+                        :Manufacturing .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#sales
+:sales rdf:type owl:NamedIndividual ,
+                :Sales .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#stevmert_DeciClareMinerV11_Git
+:stevmert_DeciClareMinerV11_Git rdf:type owl:NamedIndividual ,
+                                         fabio:DigitalManifestation ;
+                                rdfs:seeAlso <https://github.com/stevmert/DeciClareMinerV11/> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#stevmert_discoveryMethod_Git
+:stevmert_discoveryMethod_Git rdf:type owl:NamedIndividual ,
+                                       fabio:DigitalManifestation ;
+                              rdfs:seeAlso <https://github.com/stevmert/discoveryMethod> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#stevmert_discoveryMethod_Git_Embodiment
+:stevmert_discoveryMethod_Git_Embodiment rdf:type owl:NamedIndividual ,
+                                                  fabio:DigitalManifestation ;
+                                         rdfs:seeAlso <https://github.com/stevmert/discoveryMethod> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#4TU_ResearchDataset
+<https://purl.archive.org/slr/decisionmining.owl#4TU_ResearchDataset> rdf:type owl:NamedIndividual ,
+                                                                               fabio:Dataset ;
+                                                                      dct:subject :RoadTrafficFineManagement ;
+                                                                      datacite:hasDescription :Mannhardt_et_al.2016 ,
+                                                                                              :Portolani_et_al.2023 ;
+                                                                      datacite:hasIdentifier <https://purl.archive.org/slr/decisionmining.owl#4TU_ResearchDataset_DOI> .
+
+
+###  https://purl.archive.org/slr/decisionmining.owl#4TU_ResearchDataset_DOI
+<https://purl.archive.org/slr/decisionmining.owl#4TU_ResearchDataset_DOI> rdf:type owl:NamedIndividual ,
+                                                                                   datacite:PrimaryResourceIdentifier ;
+                                                                          datacite:usesIdentifierScheme datacite:doi ;
+                                                                          rdf:value "10.4121/uuid:270fd440-1057-4fb9-89a9-b699b47990f5" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
